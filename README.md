@@ -6,7 +6,7 @@
 </picture>
 </h1>
 
-> A library, reusable component, and dashboard tool to interact with any WoT-compliant Thing Description (TD).
+> A library, reusable component, and dashboard tool to interact with any IoT device with a WoT Thing Description (TD).
 
 The Eclipse Thingweb **UI-WoT** is a modular toolkit being designed to serve mutliple use cases. It follows the W3C Web of Things standards, ensuring high interoperability. With UI-WoT, developers can skip manual UI coding and instead generate dynamic, interactive dashboards using standardized TDs.
 
@@ -23,7 +23,7 @@ Web Components (e.g., `<ui-toggle>`, `<ui-slider>`, `<ui-button>`) that can be u
 * Will work in any framework (React, Vue, Angular) or plain HTML.
 * Encapsulated interaction logics like state sync, event listening, property writing etc.
 
-This makes these ideal to use in any custom dashboards, prototyping tools, or in embedded UIs where you want to control individual device affordances without managing low-level WoT TD interaction.
+This makes our components easy to use in any custom dashboards, prototyping tools, or in embedded UIs where you want to control individual device affordances without managing low-level WoT TD interaction.
 
 ### 2. Embeddable UI Generation Library
 
@@ -36,7 +36,7 @@ This approach will be useful for those who want to integrate dynamic WoT device 
 
 ### 3. UI Dashboard Generator
 
-UI-WoT will also include a fully functional web application that a huge upgrade to 'browserified node-wot':
+UI-WoT will also include a fully functional web application that is a significant upgrade to the example UI of node-wot's browser bundle, i.e. the 'browserified node-wot':
 
 * Allows users to **consume Thing Descriptions (TDs)**.
 * Automatically generates a complete UI dashboard.

@@ -1,10 +1,8 @@
 # ui-slider
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
@@ -12,10 +10,6 @@ A versatile slider component designed for WoT device control and monitoring.
 
 It supports continuous value selection with multiple visual styles, orientations, and different thumb shapes.
 Supports both interactive control and read-only monitoring modes with customizable ranges.
-
-
-
-
 
 ### Examples
 
@@ -26,6 +20,7 @@ Supports both interactive control and read-only monitoring modes with customizab
 <ui-slider variant="wide" value="75" min="0" max="100"></ui-slider>
 <ui-slider readonly="true" label="Sensor" show-last-updated="true"></ui-slider>
 ```
+
 #### Example – JS integration with node-wot browser bundle
 
 ```javascript
@@ -35,7 +30,7 @@ const initialValue = Number(await (await thing.readProperty('brightness')).value
 await slider.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('brightness', value);
-  }
+  },
 });
 ```
 
@@ -60,13 +55,11 @@ await slider.setValue(initialValue, {
 | `value`           | `value`             | Current numeric value of the slider                                                                                                                                                                                  | `number`                                                     | `0`            |
 | `variant`         | `variant`           | Visual style variant of the slider. - narrow: Thin track with minimal styling (default) - wide: Thicker track - rainbow: Multi-color gradient track - neon: Glowing effect styling - stepped: Visual step indicators | `"narrow" \| "neon" \| "rainbow" \| "stepped" \| "wide"`     | `'narrow'`     |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                              | Type                         |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `valueMsg` | Emitted when slider value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<number>>` |
-
 
 ## Methods
 
@@ -103,8 +96,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: number, options?: { writeOperation?: (value: number) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Set the slider value with optional device api and other options.
@@ -113,18 +104,14 @@ This is the primary method for connecting slider to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 Values are automatically clamped to the min/max range.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 const slider = document.querySelector('ui-slider');
-await slider.setValue(50);    // Set to 50
-await slider.setValue(75.5);  // Set to 75.5 (decimals supported)
+await slider.setValue(50); // Set to 50
+await slider.setValue(75.5); // Set to 75.5 (decimals supported)
 ```
+
 ```javascript
 // Smart thermostat control
 const thermostat = document.querySelector('#thermostat');
@@ -136,8 +123,8 @@ await thermostat.setValue(72, {
   optimistic: true,
   autoRetry: {
     attempts: 2,
-    delay: 3000
-  }
+    delay: 3000,
+  },
 });
 ```
 
@@ -171,8 +158,6 @@ Perfect for WebSocket updates or polling from remote devices.
 
 Type: `Promise<void>`
 
-
-
 ### `triggerReadPulse() => Promise<void>`
 
 This triggers a visual pulse for read-only mode.
@@ -183,6 +168,3 @@ The pulse automatically fades after 1.5 seconds.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

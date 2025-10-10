@@ -65,48 +65,44 @@ Example:
 ```html
 <!DOCTYPE html>
 <html>
-
-<head>
-  <!-- Required: node-wot browser bundle for WoT functionality -->
-  <script src="https://cdn.jsdelivr.net/npm/@node-wot/browser-bundle@latest/dist/wot-bundle.min.js"></script>
-  <!-- Load all components -->
-  <script type="module"
-    src="./packages/components/www/build/ui-wot-components.esm.js"></script> 
+  <head>
+    <!-- Required: node-wot browser bundle for WoT functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@node-wot/browser-bundle@latest/dist/wot-bundle.min.js"></script>
+    <!-- Load all components -->
+    <script type="module" src="./packages/components/www/build/ui-wot-components.esm.js"></script>
     <!-- the path assumes an html in the root of the repository. Change as you see fit or use the npm module -->
-</head>
+  </head>
 
-<body>
-  <ui-slider id="integer" label="Integer" min="0" max="100" value="50"></ui-slider>
-</body>
-<script>
-  // Put your TD connection logic here, use defined methods for ease
+  <body>
+    <ui-slider id="integer" label="Integer" min="0" max="100" value="50"></ui-slider>
+  </body>
+  <script>
+    // Put your TD connection logic here, use defined methods for ease
 
-  (async () => {
-    // Wait for components to be defined
-    await Promise.all(['ui-slider'].map(tag => customElements.whenDefined(tag)));
+    (async () => {
+      // Wait for components to be defined
+      await Promise.all(['ui-slider'].map(tag => customElements.whenDefined(tag)));
 
-    // Initialize WoT and consume Thing Description
-    const servient = new window.WoT.Core.Servient();
-    servient.addClientFactory(new window.WoT.Http.HttpClientFactory());
-    const wot = await servient.start();
-    const td = await fetch('http://plugfest.thingweb.io/http-data-schema-thing').then(r => r.json());
-    const thing = await wot.consume(td);
+      // Initialize WoT and consume Thing Description
+      const servient = new window.WoT.Core.Servient();
+      servient.addClientFactory(new window.WoT.Http.HttpClientFactory());
+      const wot = await servient.start();
+      const td = await fetch('http://plugfest.thingweb.io/http-data-schema-thing').then(r => r.json());
+      const thing = await wot.consume(td);
 
-    // Connect components manually - wait for the component to be ready
-    const slider = document.getElementById('integer');
-    await slider.componentOnReady();
-    const curVal = await (await thing.readProperty('int')).value();
-    console.log(`Initial value: ${curVal}`);
-    await slider.setValue(curVal, {
-       writeOperation: async value => {
-         await thing.writeProperty('int', value);
-       }
-     });
-  })();
-</script>
-
+      // Connect components manually - wait for the component to be ready
+      const slider = document.getElementById('integer');
+      await slider.componentOnReady();
+      const curVal = await (await thing.readProperty('int')).value();
+      console.log(`Initial value: ${curVal}`);
+      await slider.setValue(curVal, {
+        writeOperation: async value => {
+          await thing.writeProperty('int', value);
+        },
+      });
+    })();
+  </script>
 </html>
-
 ```
 
 ### 2. Framework Integration (React/Vue/Angular)
@@ -191,42 +187,35 @@ UI-WoT Components provide a complete set of Web Components for WoT interactions:
 ### Input Components
 
 - [`<ui-toggle>`](../../docs/components/ui-toggle.md) - **On/off switch for boolean properties**
-
   - Visual switch for boolean values, perfect for controlling device power states, modes, or any boolean property.
   - Supports multiple color themes and dark mode.
   - Shows status indicators and timestamps to provide better feedback and indicate when something was last changed.
 
 - [`<ui-slider>`](../../docs/components/ui-slider.md) - **Smooth range control for numeric properties**
-
   - Intuitive sliding control that makes adjusting brightness, temperature, or volume feel effortless.
   - You can set custom min/max boundaries and step increments to match your device's capabilities perfectly.
   - Displays the current value in real-time, so users always know exactly where they've set things.
 
 - [`<ui-number-picker>`](../../docs/components/ui-number-picker.md) - **Precise numeric input specifically for integers.**
-
   - Features handy increment/decrement buttons alongside direct keyboard input for when you need exact values.
   - Great for settings like timer durations, counts, or any scenario where precision matters.
 
 - [`<ui-text>`](../../docs/components/ui-text.md) - **Flexible text input with JSON support**
-
   - Works for both single-line inputs (like device names) and multi-line text (like descriptions or logs).
   - Smart debouncing to avoid continuous data writing to the Thing while someone is still typing.
   - Choose between debounced or manual data write using the save button.
   - Has structured (Array and JSON support) and unstructured modes with show-line-number option.
 
 - [`<ui-checkbox>`](../../docs/components/ui-checkbox.md) - **Traditional checkbox**
-
   - Perfect alternative to toggle switches when you have multiple boolean options in a list or form.
   - Includes proper label association and radio variant.
 
 - [`<ui-file-picker>`](../../docs/components/ui-file-picker.md) - **Simple file handler**
-
   - Supports both traditional file browsing and modern drag-and-drop interactions.
   - Handles single files or multiple selections depending on what your application needs.
   - Built-in file type filtering helps users select only the files your device can actually process.
 
 - [`<ui-color-picker>`](../../docs/components/ui-color-picker.md) - **Color picker with various formats**
-
   - Understands whatever color format you use, whether that's hex codes (#FF0000), RGB values, HSL, or even CSS color names like "red" or "blue".
   - Automatically converts between formats (hex, rgb, rgba, hsl, hsla) so your Thing gets exactly what it expects.
   - Features an intuitive color box interface with real-time preview.
@@ -246,7 +235,6 @@ UI-WoT Components provide a complete set of Web Components for WoT interactions:
 ### Monitoring Components
 
 - [`<ui-event>`](../../docs/components/ui-event.md) - **Real-time event monitoring**
-
   - Subscribes to your Thing and displays events as they happen.
   - Has timestamps so you can track what happened and when.
   - Gives you full control with Subscribe/Unsubscribe buttons, perfect for debugging or monitoring specific time periods.

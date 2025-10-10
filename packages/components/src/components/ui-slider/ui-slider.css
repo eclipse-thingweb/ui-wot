@@ -60,14 +60,20 @@ input[type='range']:focus {
 .neon-primary-track {
   background-color: var(--color-primary) !important;
   border: 1px solid var(--color-primary) !important;
-  box-shadow: 0 0 3px rgba(6, 115, 98, 0.6), 0 0 8px rgba(6, 115, 98, 0.4), 0 0 15px rgba(6, 115, 98, 0.3) !important;
+  box-shadow:
+    0 0 3px rgba(6, 115, 98, 0.6),
+    0 0 8px rgba(6, 115, 98, 0.4),
+    0 0 15px rgba(6, 115, 98, 0.3) !important;
   filter: brightness(1.1) saturate(1.2);
 }
 
 .neon-secondary-track {
   background-color: var(--color-secondary) !important;
   border: 1px solid var(--color-secondary) !important;
-  box-shadow: 0 0 3px rgba(184, 74, 145, 0.6), 0 0 8px rgba(184, 74, 145, 0.4), 0 0 15px rgba(184, 74, 145, 0.3) !important;
+  box-shadow:
+    0 0 3px rgba(184, 74, 145, 0.6),
+    0 0 8px rgba(184, 74, 145, 0.4),
+    0 0 15px rgba(184, 74, 145, 0.3) !important;
   filter: brightness(1.1) saturate(1.2);
 }
 
@@ -75,6 +81,9 @@ input[type='range']:focus {
 .dark .neon-primary-track {
   background-color: var(--color-primary-hover) !important;
   border-color: var(--color-primary-hover) !important;
-  box-shadow: 0 0 3px rgba(51, 184, 164, 0.7), 0 0 8px rgba(51, 184, 164, 0.5), 0 0 15px rgba(51, 184, 164, 0.4) !important;
+  box-shadow:
+    0 0 3px rgba(51, 184, 164, 0.7),
+    0 0 8px rgba(51, 184, 164, 0.5),
+    0 0 15px rgba(51, 184, 164, 0.4) !important;
   filter: brightness(1.2) saturate(1.3);
 }

@@ -10,8 +10,7 @@ export function connectThings(deps: { tdInfos: any[]; components: any[]; editMod
     for (const stop of stopHandles.current) {
       try {
         stop();
-      } catch (e) {
-      }
+      } catch (e) {}
     }
     stopHandles.current = [];
   };

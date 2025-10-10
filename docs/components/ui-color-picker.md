@@ -1,18 +1,12 @@
 # ui-color-picker
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile color picker component designed for WoT device control.
-
-
-
-
 
 ### Examples
 
@@ -21,6 +15,7 @@ A versatile color picker component designed for WoT device control.
 ```html
 <ui-color-picker value="#ff0000" label="Theme Color"></ui-color-picker>
 ```
+
 #### Example – JS integaration with node-wot browser bundle
 
 ```javascript
@@ -30,7 +25,7 @@ const initialValue = String(await (await thing.readProperty('deviceColor')).valu
 await colorPicker.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('deviceColor', value);
-  }
+  },
 });
 ```
 
@@ -46,13 +41,11 @@ await colorPicker.setValue(initialValue, {
 | `showStatus`      | `show-status`       | Show visual operation status indicators (loading, success, failed) right to the component | `boolean` | `true`      |
 | `value`           | `value`             | Current color value in hex format (e.g., #ff0000)                                         | `string`  | `'#000000'` |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                                    | Type                         |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `valueMsg` | Emitted when color picker value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<string>>` |
-
 
 ## Methods
 
@@ -89,8 +82,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: string, options?: { writeOperation?: (value: string) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Sets the color picker value with optional device communication api and other options.
@@ -98,16 +89,12 @@ Sets the color picker value with optional device communication api and other opt
 This is the primary method for connecting color pickers to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 await colorPicker.setValue('#ff0000');
 ```
+
 ```javascript
 const colorPicker = document.getElementById('device-color');
 const initialValue = String(await (await thing.readProperty('deviceColor')).value());
@@ -115,7 +102,7 @@ await colorPicker.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('deviceColor', value);
   },
-  autoRetry: { attempts: 3, delay: 1000 }
+  autoRetry: { attempts: 3, delay: 1000 },
 });
 ```
 
@@ -148,6 +135,3 @@ Perfect for WebSocket updates or polling from remote devices.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

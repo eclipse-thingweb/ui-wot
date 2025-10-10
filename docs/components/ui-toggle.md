@@ -1,10 +1,8 @@
 # ui-toggle
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
@@ -12,10 +10,6 @@ A versatile toggle switch component designed for WoT device control and monitori
 
 It has various features, multiple visual styles, status and last updated timestamps.
 Supports both interactive control and read-only monitoring modes.
-
-
-
-
 
 ### Examples
 
@@ -26,6 +20,7 @@ Supports both interactive control and read-only monitoring modes.
 <ui-toggle variant="neon" value="false" label="Fan"></ui-toggle>
 <ui-toggle readonly="true" label="Sensor" show-last-updated="true"></ui-toggle>
 ```
+
 #### Example – JS integaration with node-wot browser bundle
 
 ```javascript
@@ -35,7 +30,7 @@ const initialValue = Boolean(await (await thing.readProperty('power')).value());
 await toggle.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('power', value);
-  }
+  },
 });
 ```
 
@@ -55,13 +50,11 @@ await toggle.setValue(initialValue, {
 | `value`           | `value`             | Current boolean value of the toggle                                                                                                                                                                                                                                                                                   | `boolean`                                              | `false`     |
 | `variant`         | `variant`           | Visual style variant of the toggle. - circle: Common pill-shaped toggle (default) - square: Rectangular toggle with square thumb - apple: iOS-style switch (bigger size, rounded edges) - cross: Shows cross when off, tick when on with red background when off and green when on - neon: Glowing effect when active | `"apple" \| "circle" \| "cross" \| "neon" \| "square"` | `'circle'`  |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                              | Type                          |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | `valueMsg` | Emitted when toggle value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<boolean>>` |
-
 
 ## Methods
 
@@ -98,8 +91,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: boolean, options?: { writeOperation?: (value: boolean) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Sets the toggle value with optional device communication api and other options.
@@ -107,16 +98,12 @@ Sets the toggle value with optional device communication api and other options.
 This is the primary method for connecting toggles to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 await toggle.setValue(true);
 ```
+
 ```javascript
 const toggle = document.getElementById('device-toggle');
 const initialValue = Boolean(await (await thing.readProperty('power')).value());
@@ -124,7 +111,7 @@ await toggle.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('power', value);
   },
-  autoRetry: { attempts: 3, delay: 1000 }
+  autoRetry: { attempts: 3, delay: 1000 },
 });
 ```
 
@@ -158,8 +145,6 @@ Perfect for WebSocket updates or polling from remote devices.
 
 Type: `Promise<void>`
 
-
-
 ### `triggerReadPulse() => Promise<void>`
 
 This triggers a visual pulse for read-only mode.
@@ -170,6 +155,3 @@ The pulse automatically fades after 1.5 seconds.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

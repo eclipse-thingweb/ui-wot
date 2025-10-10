@@ -1,18 +1,12 @@
 # ui-notification
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile notification component designed for WoT device control.
-
-
-
-
 
 ### Examples
 
@@ -23,12 +17,13 @@ A versatile notification component designed for WoT device control.
 <ui-notification type="success" duration="3000" message="Device connected successfully"></ui-notification>
 <ui-notification type="warning" show-close-button="true" message="Low battery warning"></ui-notification>
 ```
+
 #### Example – JS integration with node-wot browser bundle
 
 ```javascript
 const notificationElement = document.getElementById('alert-notification');
 const eventName = 'temperature-critical';
-await thing.subscribeEvent(eventName, async (eventData) => {
+await thing.subscribeEvent(eventName, async eventData => {
   const value = await eventData.value();
   notificationElement.message = `Alert: ${eventName} - ${JSON.stringify(value)}`;
   notificationElement.type = 'warning';
@@ -38,22 +33,20 @@ await thing.subscribeEvent(eventName, async (eventData) => {
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                                                                                             | Type                                          | Default  |
-| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------- |
-| `dark`            | `dark`              | Enable dark mode theme styling when true                                                                                                                                                                | `boolean`                                     | `false`  |
-| `duration`        | `duration`          | Duration before auto-dismiss (0 to disable auto-dismiss)                                                                                                                                                | `number`                                      | `3000`   |
-| `message`         | `message`           | The message text to display in the notification                                                                                                                                                         | `string`                                      | `''`     |
-| `showCloseButton` | `show-close-button` | Whether to show a close button                                                                                                                                                                          | `boolean`                                     | `true`   |
-| `showIcon`        | `show-icon`         | Whether to show an icon based on the notification type                                                                                                                                                  | `boolean`                                     | `true`   |
-| `type`            | `type`              | Type of notification for different visual styling and icons. - info: General information (blue) - success: Success messages (green)  - warning: Warning messages (orange) - error: Error messages (red) | `"error" \| "info" \| "success" \| "warning"` | `'info'` |
-
+| Property          | Attribute           | Description                                                                                                                                                                                            | Type                                          | Default  |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | -------- |
+| `dark`            | `dark`              | Enable dark mode theme styling when true                                                                                                                                                               | `boolean`                                     | `false`  |
+| `duration`        | `duration`          | Duration before auto-dismiss (0 to disable auto-dismiss)                                                                                                                                               | `number`                                      | `3000`   |
+| `message`         | `message`           | The message text to display in the notification                                                                                                                                                        | `string`                                      | `''`     |
+| `showCloseButton` | `show-close-button` | Whether to show a close button                                                                                                                                                                         | `boolean`                                     | `true`   |
+| `showIcon`        | `show-icon`         | Whether to show an icon based on the notification type                                                                                                                                                 | `boolean`                                     | `true`   |
+| `type`            | `type`              | Type of notification for different visual styling and icons. - info: General information (blue) - success: Success messages (green) - warning: Warning messages (orange) - error: Error messages (red) | `"error" \| "info" \| "success" \| "warning"` | `'info'` |
 
 ## Events
 
 | Event               | Description                                                                                                                   | Type                                                                                                                      |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `notificationClose` | Emitted when the notification is closed/dismissed. Contains information about how it was closed (auto, manual, programmatic). | `CustomEvent<{ message: string; type: string; dismissMethod: "auto" \| "manual" \| "programmatic"; timestamp: number; }>` |
-
 
 ## Methods
 
@@ -72,8 +65,6 @@ For external control or programmatic dismissal.
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `getValue(includeMetadata?: boolean) => Promise<boolean | { value: boolean; message: string; type: string; duration: number; }>`
 
@@ -97,11 +88,6 @@ Shows the notification with animation.
 
 This is the primary method for displaying notifications programmatically.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
@@ -124,9 +110,6 @@ Useful when managing notification state externally and you want to show/hide con
 
 Type: `Promise<void>`
 
+---
 
-
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

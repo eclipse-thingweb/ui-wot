@@ -1,17 +1,15 @@
 # ui-object
 
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
+[Properties](#properties) · [Methods](#methods)
 
-
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
-[Properties](#properties) · [Methods](#methods)
 <!-- Auto Generated Below -->
-
 
 ## Overview
 
@@ -20,10 +18,6 @@ A versatile object component designed for WoT device to handle object type TD pr
 It auto-generates an editor interface for TD object-type properties with save button to push
 all the changes at once.
 It also features status indicators, last updated timestamps.
-
-
-
-
 
 ### Examples
 
@@ -34,6 +28,7 @@ It also features status indicators, last updated timestamps.
 <ui-object variant="filled" show-last-updated="true" show-status="true"></ui-object>
 <ui-object readonly="true" label="System Status" dark="true"></ui-object>
 ```
+
 #### Example – JS integration with node-wot browser bundle
 
 ```javascript
@@ -43,7 +38,7 @@ const initialValue = await (await thing.readProperty('configuration')).value();
 await objectEditor.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('configuration', value);
-  }
+  },
 });
 ```
 
@@ -59,7 +54,6 @@ await objectEditor.setValue(initialValue, {
 | `showLastUpdated` | `show-last-updated` | Show last updated timestamp below the component                                                                                            | `boolean`                               | `false`      |
 | `showStatus`      | `show-status`       | Show visual operation status indicators (loading, success, failed) right to the component                                                  | `boolean`                               | `true`       |
 | `variant`         | `variant`           | Visual style variant of the object editor. - outlined: Border around container (default) - filled: Background-filled container with border | `"filled" \| "outlined"`                | `'outlined'` |
-
 
 ## Methods
 
@@ -99,23 +93,19 @@ Sets the object value with optional device communication api and other options.
 This is the primary method for connecting object editors to real devices.
 It supports optimistic updates, error handling, and stores write operations for Save button.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 await objectEditor.setValue({ temperature: 22, humidity: 45 });
 ```
+
 ```javascript
 const objectEditor = document.getElementById('device-config');
 const initialValue = await (await thing.readProperty('configuration')).value();
 await objectEditor.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('configuration', value);
-  }
+  },
 });
 ```
 
@@ -148,6 +138,3 @@ Perfect for WebSocket updates or polling from remote devices.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

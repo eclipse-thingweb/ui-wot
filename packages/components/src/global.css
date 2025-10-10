@@ -5,24 +5,29 @@
 
 /* Common keyframe animations */
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(1.5);
     opacity: 0;
   }
 }
 
 /* CSS Variables - Colors, Fonts, Spacing */
-:root, :host {
-
+:root,
+:host {
   --color-primary: #33b8a4;
   --color-primary-hover: #2ea694;
   --color-primary-light: #3ac8b3;
-  --color-secondary: #B84A91;
+  --color-secondary: #b84a91;
   --color-secondary-hover: #9e3877;
   --color-secondary-light: #cc68ad;
   --color-neutral: #6b7280;
@@ -33,25 +38,23 @@
   --color-danger: #dc2626;
   --color-info: #2563eb;
 
-
-  
   /* Fonts */
   --font-sans: 'Josefin Sans', sans-serif;
   --font-mono: 'Fira Mono', monospace;
-  
+
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 0.75rem;
   --spacing-lg: 1rem;
   --spacing-xl: 1.5rem;
-  
+
   /* Border radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-full: 9999px;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -59,30 +62,76 @@
 }
 
 /* Component font */
-ui-button, ui-number-picker, ui-slider, ui-checkbox, ui-toggle, ui-calendar, ui-notification, ui-text {
+ui-button,
+ui-number-picker,
+ui-slider,
+ui-checkbox,
+ui-toggle,
+ui-calendar,
+ui-notification,
+ui-text {
   font-family: var(--font-sans);
 }
 
-ui-button *, ui-number-picker *, ui-slider *, ui-checkbox *, ui-toggle *, ui-calendar *, ui-notification *, ui-text * {
+ui-button *,
+ui-number-picker *,
+ui-slider *,
+ui-checkbox *,
+ui-toggle *,
+ui-calendar *,
+ui-notification *,
+ui-text * {
   font-family: inherit;
 }
 
 /* Essential layout utilities */
-.relative { position: relative !important; }
-.absolute { position: absolute !important; }
-.inline-block { display: inline-block !important; }
-.inline-flex { display: inline-flex !important; }
-.flex { display: flex !important; }
-.items-center { align-items: center !important; }
-.justify-center { justify-content: center !important; }
-.w-full { width: 100% !important; }
-.h-full { height: 100% !important; }
-.rounded-full { border-radius: 9999px !important; }
-.rounded-md { border-radius: 0.375rem !important; }
-.transition-all { transition: all 0.3s ease !important; }
-.cursor-pointer { cursor: pointer !important; }
-.select-none { user-select: none !important; }
+.relative {
+  position: relative !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.inline-flex {
+  display: inline-flex !important;
+}
+.flex {
+  display: flex !important;
+}
+.items-center {
+  align-items: center !important;
+}
+.justify-center {
+  justify-content: center !important;
+}
+.w-full {
+  width: 100% !important;
+}
+.h-full {
+  height: 100% !important;
+}
+.rounded-full {
+  border-radius: 9999px !important;
+}
+.rounded-md {
+  border-radius: 0.375rem !important;
+}
+.transition-all {
+  transition: all 0.3s ease !important;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+.select-none {
+  user-select: none !important;
+}
 
 /* Font utilities */
-.font-sans { font-family: var(--font-sans) !important; }
-.font-mono { font-family: var(--font-mono) !important; }
+.font-sans {
+  font-family: var(--font-sans) !important;
+}
+.font-mono {
+  font-family: var(--font-mono) !important;
+}

@@ -32,8 +32,8 @@ export function NotificationOverlay({ items, onClose }: { items: OverlayNotifica
         if (shownRef.current.has(item.id)) continue;
         shownRef.current.add(item.id);
 
-  const el = document.createElement('ui-notification') as any;
-  (el as any).__overlayId = item.id;
+        const el = document.createElement('ui-notification') as any;
+        (el as any).__overlayId = item.id;
         el.setAttribute('message', item.message ?? '');
         el.setAttribute('type', item.type ?? 'info');
         if (item.duration != null) el.setAttribute('duration', String(item.duration));

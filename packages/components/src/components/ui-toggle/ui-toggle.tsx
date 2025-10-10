@@ -576,8 +576,8 @@ export class UiToggle {
     const hoverTitle = this.readonly
       ? 'Read-only mode - Value reflects external state'
       : this.disabled
-      ? 'Toggle is disabled'
-      : `Click to ${this.isActive ? 'turn off' : 'turn on'}${this.label ? ` ${this.label}` : ''}`;
+        ? 'Toggle is disabled'
+        : `Click to ${this.isActive ? 'turn off' : 'turn on'}${this.label ? ` ${this.label}` : ''}`;
 
     return (
       <div class="inline-block" part="container" role="group" aria-label={this.label || 'Toggle'}>

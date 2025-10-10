@@ -193,8 +193,8 @@ export function ComponentCanvasPage() {
         const payload = detail?.value ?? detail ?? ev;
         const title = (component.attributes?.['label'] as any) || component.name || 'Event';
         const isUiMsg = detail && typeof detail === 'object' && ('newVal' in detail || 'value' in detail || 'timestamp' in detail || 'ts' in detail);
-        const value = isUiMsg ? (detail as any).value ?? (detail as any).newVal : payload;
-        const timestamp = isUiMsg ? (detail as any).ts ?? (detail as any).timestamp : undefined;
+        const value = isUiMsg ? ((detail as any).value ?? (detail as any).newVal) : payload;
+        const timestamp = isUiMsg ? ((detail as any).ts ?? (detail as any).timestamp) : undefined;
         const message = (() => {
           const valueStr = typeof value === 'object' ? JSON.stringify(value) : String(value);
           const timeStr = formatTime(timestamp);
@@ -286,7 +286,7 @@ export function ComponentCanvasPage() {
       const positionX = columnPositionsX[columnIndex];
       const positionY = columnHeights[columnIndex];
       const sectionTitle =
-        sectionId === '__unassigned__' ? 'Unassigned' : sectionNames[sectionId] ?? state.tdInfos.find(thingInfo => thingInfo.id === sectionId)?.title ?? 'Section';
+        sectionId === '__unassigned__' ? 'Unassigned' : (sectionNames[sectionId] ?? state.tdInfos.find(thingInfo => thingInfo.id === sectionId)?.title ?? 'Section');
       const styleConfig = sectionStyles[sectionId] || { bgColor: 'transparent', border: 'dashed' as const };
       const borderStyle = styleConfig.border === 'none' ? 'none' : `1px ${styleConfig.border} #94a3b8`;
       const existingSection = nodesRef.current.find(nodeItem => nodeItem.id === `sec:${sectionId}`);

@@ -227,8 +227,8 @@ export function TDInputPage() {
                     ? 'border-gray-400 bg-gray-800/60'
                     : 'border-gray-500 bg-gray-100'
                   : theme === 'dark'
-                  ? 'border-gray-600 hover:border-gray-500'
-                  : 'border-gray-300 hover:border-gray-400'
+                    ? 'border-gray-600 hover:border-gray-500'
+                    : 'border-gray-300 hover:border-gray-400'
               } ${loading ? 'pointer-events-none opacity-50' : ''}`}
               style={
                 isDragActive

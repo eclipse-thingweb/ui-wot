@@ -361,7 +361,7 @@ export class UiColorPicker {
       }
 
       if (hex.length === 6) return `#${hex}`;
-      // Handle 8-digit hex (with alpha) 
+      // Handle 8-digit hex (with alpha)
       if (hex.length === 8) return `#${hex.slice(0, 6)}`;
     }
 

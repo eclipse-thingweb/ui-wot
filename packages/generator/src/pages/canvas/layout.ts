@@ -72,7 +72,7 @@ export function reflowAllSections(previousNodes: Node[]): Node[] {
       return hasFixed;
     };
 
-    // Sort children by stored layout order 
+    // Sort children by stored layout order
     sortChildrenByLayoutOrder(children, (section.id as string).replace(/^sec:/, ''));
 
     // Initial placement pass

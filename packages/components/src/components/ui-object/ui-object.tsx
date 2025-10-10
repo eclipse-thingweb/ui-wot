@@ -224,7 +224,7 @@ export class UiObject {
       return false;
     }
   }
- 
+
   /**
    * This method updates the value silently without triggering events.
    *
@@ -237,8 +237,6 @@ export class UiObject {
   async setValueSilent(value: any): Promise<void> {
     this.updateFromValue(value);
   }
-
-
 
   // ============================== LIFECYCLE METHODS ==============================
 

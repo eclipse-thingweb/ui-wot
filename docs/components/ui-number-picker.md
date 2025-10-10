@@ -1,10 +1,8 @@
 # ui-number-picker
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
@@ -12,10 +10,6 @@ A versatile number picker component designed for WoT device control and monitori
 
 It has increment/decrement buttons, multiple visual styles, status and last updated timestamps.
 Supports both interactive control and read-only monitoring modes with customizable ranges.
-
-
-
-
 
 ### Examples
 
@@ -26,6 +20,7 @@ Supports both interactive control and read-only monitoring modes with customizab
 <ui-number-picker variant="filled" value="50" min="0" max="100"></ui-number-picker>
 <ui-number-picker readonly="true" label="Sensor" show-last-updated="true"></ui-number-picker>
 ```
+
 #### Example – JS integaration with node-wot browser bundle
 
 ```javascript
@@ -35,7 +30,7 @@ const initialValue = Number(await (await thing.readProperty('volume')).value());
 await numberPicker.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('volume', value);
-  }
+  },
 });
 ```
 
@@ -58,13 +53,11 @@ await numberPicker.setValue(initialValue, {
 | `value`           | `value`             | Current numeric value of the number picker                                                                                                                                  | `number`                                | `0`         |
 | `variant`         | `variant`           | Visual style variant of the number picker. - minimal: Clean buttons with subtle background (default) - outlined: Buttons with border outline - filled: Solid filled buttons | `"filled" \| "minimal" \| "outlined"`   | `'minimal'` |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                                     | Type                         |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `valueMsg` | Emitted when number picker value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<number>>` |
-
 
 ## Methods
 
@@ -101,8 +94,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: number, options?: { writeOperation?: (value: number) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Sets the number picker value with optional device communication api and other options.
@@ -110,16 +101,12 @@ Sets the number picker value with optional device communication api and other op
 This is the primary method for connecting number pickers to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 await numberPicker.setValue(50);
 ```
+
 ```javascript
 const numberPicker = document.getElementById('device-volume');
 const initialValue = Number(await (await thing.readProperty('volume')).value());
@@ -127,7 +114,7 @@ await numberPicker.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('volume', value);
   },
-  autoRetry: { attempts: 3, delay: 1000 }
+  autoRetry: { attempts: 3, delay: 1000 },
 });
 ```
 
@@ -161,8 +148,6 @@ Perfect for WebSocket updates or polling from remote devices.
 
 Type: `Promise<void>`
 
-
-
 ### `triggerReadPulse() => Promise<void>`
 
 This triggers a visual pulse for read-only mode.
@@ -173,6 +158,3 @@ The pulse automatically fades after 1.5 seconds.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

@@ -7,7 +7,8 @@
     "build": "npm run build --workspaces",
     "start:components": "npm run start --workspace packages/components",
     "start:generator": "npm run dev --workspace packages/generator",
-    "start:td-host": "node packages/generator/td-servient.cjs"
+    "start:td-host": "node packages/generator/td-servient.cjs",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
   "workspaces": [
     "packages/components",
     "packages/generator"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
 }

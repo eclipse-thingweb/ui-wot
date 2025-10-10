@@ -1,10 +1,8 @@
 # ui-button
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
@@ -13,18 +11,14 @@ A simple button component designed for WoT device actions.
 Features multiple visual styles, status indicators, and Web of Things integration.
 Buttons trigger actions rather than managing state values.
 
-
-
-
-
 ### Examples
 
 #### Example – Basic Usage
 
 ```html
-<ui-button label="Click Me"></ui-button>
-<ui-button variant="filled" label="Submit" show-status="true"></ui-button>
+<ui-button label="Click Me"></ui-button> <ui-button variant="filled" label="Submit" show-status="true"></ui-button>
 ```
+
 #### Example – WoT Action Integration
 
 ```javascript
@@ -47,13 +41,11 @@ await button.setAction(async () => {
 | `showStatus`      | `show-status`       | Show visual operation status indicators (loading, success, failed) right to the component                                                                                      | `boolean`                               | `false`      |
 | `variant`         | `variant`           | Visual style variant of the button. - minimal: Clean design with transparent background - outlined: Border-focused design with outline style - filled: Solid background design | `"filled" \| "minimal" \| "outlined"`   | `'outlined'` |
 
-
 ## Events
 
 | Event      | Description                                                                                                            | Type                         |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `clickMsg` | Emitted when button is clicked through user interaction. Contains the button label, timestamp, and source information. | `CustomEvent<UiMsg<string>>` |
-
 
 ## Methods
 
@@ -61,11 +53,6 @@ await button.setAction(async () => {
 
 Sets the action to execute when button is clicked.
 This is the primary method for connecting button to real devices .
-
-
-
-
-
 
 #### Examples
 
@@ -102,6 +89,3 @@ Useful when managing device communication externally and you want to show loadin
 #### Returns
 
 Type: `Promise<void>`
-
-
-

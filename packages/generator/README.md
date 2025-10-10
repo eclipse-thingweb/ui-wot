@@ -92,7 +92,6 @@ Here's how to create your first dashboard in under a minute:
 1. **Start the application** (follow installation steps above)
 
 2. **Navigate to TD input:**
-
    - At the home page, click '+' to get started
    - You will now be at the 'Add Thing Description' page
 
@@ -107,7 +106,6 @@ Here's how to create your first dashboard in under a minute:
    **Option 1: URL Input**
 
    Perfect for devices already running on your network:
-
    1. Enter the full URL (e.g., `http://192.168.1.100:8080/counter`)
    2. Click "Consume"
    3. Wait for redirect to affordance page
@@ -129,7 +127,6 @@ Here's how to create your first dashboard in under a minute:
    3. The TD will be parsed automatically
 
    **Option 3: Loading Dashboard from Saved JSON**
-
    1. In the 'From File' section, either click on the 'Dashboard' box or drag a JSON file into the drop zone
    2. If clicked, choose the desired file
    3. Dashboard will be loaded according to the saved file

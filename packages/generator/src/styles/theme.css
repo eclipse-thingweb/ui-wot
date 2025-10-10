@@ -7,7 +7,17 @@
   --bg-color: #ffffff;
 
   /* FONTS*/
-  font-family: 'Josefin Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    'Josefin Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   --font-family-heading: 'Bebas Neue', cursive;
   --font-family-body: 'Josefin Sans', sans-serif;
   --font-family-mono: 'Fira Code', monospace;
@@ -117,7 +127,9 @@ body {
   min-height: 100vh;
   color: var(--color-text-primary);
   background-color: var(--bg-color);
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
 }
 
 #root {
@@ -126,7 +138,11 @@ body {
 
 /* Global transition for theme change*/
 * {
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 html {

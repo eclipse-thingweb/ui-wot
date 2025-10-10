@@ -580,8 +580,8 @@ export class UiNumberPicker {
     const hoverTitle = this.readonly
       ? 'Read-only mode - Value reflects external state'
       : this.disabled
-      ? 'Number picker is disabled'
-      : `Use buttons or arrow keys to ${this.label ? `change ${this.label}` : 'change value'}`;
+        ? 'Number picker is disabled'
+        : `Use buttons or arrow keys to ${this.label ? `change ${this.label}` : 'change value'}`;
 
     return (
       <div class="inline-block" part="container" role="group" aria-label={this.label || 'Number picker'}>
@@ -648,8 +648,8 @@ export class UiNumberPicker {
                     !this.disabled && !(this.min !== undefined && this.currentValue <= this.min) && this.variant === 'outlined'
                       ? { borderColor: this.getActiveColor() }
                       : this.variant === 'filled' && !this.disabled
-                      ? { backgroundColor: this.getActiveColor() }
-                      : {}
+                        ? { backgroundColor: this.getActiveColor() }
+                        : {}
                   }
                   onClick={this.handleDecrement}
                   disabled={this.disabled || (this.min !== undefined && this.currentValue <= this.min)}
@@ -684,8 +684,8 @@ export class UiNumberPicker {
                     !this.disabled && !(this.max !== undefined && this.currentValue >= this.max) && this.variant === 'outlined'
                       ? { borderColor: this.getActiveColor() }
                       : this.variant === 'filled' && !this.disabled
-                      ? { backgroundColor: this.getActiveColor() }
-                      : {}
+                        ? { backgroundColor: this.getActiveColor() }
+                        : {}
                   }
                   onClick={this.handleIncrement}
                   disabled={this.disabled || (this.max !== undefined && this.currentValue >= this.max)}

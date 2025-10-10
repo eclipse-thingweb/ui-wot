@@ -32,6 +32,7 @@ const { wot: fresh } = await initializeWot({ reuseExisting: false });
 ```
 
 **Options:**
+
 - `reuseExisting?: boolean` - Whether to reuse existing WoT instance (default: `true`)
 
 **Returns:** `Promise<{ wot: any }>`
@@ -56,6 +57,7 @@ cleanups.forEach(cleanup => cleanup());
 ```
 
 **Options:**
+
 - `baseUrl: string` - Thing Description URL
 - `container?: ParentNode` - Container to search for components (default: `document`)
 
@@ -82,6 +84,7 @@ cleanup();
 ```
 
 **Options:**
+
 - `baseUrl: string` - Thing Description URL
 - `name: string` - Property name in the TD
 - `observe?: boolean` - Deprecated, use `strategy` instead
@@ -89,6 +92,7 @@ cleanup();
 - `pollMs?: number` - Polling interval (default: 3000ms)
 
 **Update Strategies:**
+
 - `observe` - Use WoT property observation (throws if not supported)
 - `poll` - Poll property at regular intervals
 - `auto` - Try observe first, fall back to polling
@@ -108,6 +112,7 @@ await connectAction(buttonElement, {
 ```
 
 **Options:**
+
 - `baseUrl: string` - Thing Description URL
 - `name: string` - Action name in the TD
 
@@ -128,6 +133,7 @@ cleanup();
 ```
 
 **Options:**
+
 - `baseUrl: string` - Thing Description URL
 - `name: string` - Event name in the TD
 
@@ -144,27 +150,16 @@ Components can be automatically connected using HTML attributes:
 <ui-toggle td-property="power" td-url="http://device.local/td"></ui-toggle>
 
 <!-- With observation strategy -->
-<ui-slider 
-  td-property="brightness" 
-  td-strategy="observe"
-  td-url="http://device.local/td">
-</ui-slider>
+<ui-slider td-property="brightness" td-strategy="observe" td-url="http://device.local/td"> </ui-slider>
 
 <!-- With polling -->
-<ui-number-picker 
-  td-property="temperature" 
-  td-strategy="poll"
-  td-poll-ms="1000"
-  td-url="http://device.local/td">
-</ui-number-picker>
+<ui-number-picker td-property="temperature" td-strategy="poll" td-poll-ms="1000" td-url="http://device.local/td"> </ui-number-picker>
 ```
 
 ### Action Attributes
 
 ```html
-<ui-button td-action="restart" td-url="http://device.local/td">
-  Restart Device
-</ui-button>
+<ui-button td-action="restart" td-url="http://device.local/td"> Restart Device </ui-button>
 ```
 
 ### Event Attributes
@@ -181,7 +176,6 @@ Components can be automatically connected using HTML attributes:
 - `td-url` - Specific Thing Description URL (optional if using `connectAll` baseUrl)
 - `td-strategy` - Update strategy: `'observe'`, `'poll'`, or `'auto'`
 - `td-poll-ms` - Polling interval in milliseconds (default: 3000)
-
 
 ## API Reference
 
@@ -229,16 +223,19 @@ export const initiliseWot = initializeWot;
 ## Best Practices
 
 1. **Always initialize WoT first:**
+
    ```javascript
    await initializeWot();
    ```
 
 2. **Wait for custom elements:**
+
    ```javascript
    await customElements.whenDefined('ui-toggle');
    ```
 
 3. **Use cleanup functions:**
+
    ```javascript
    const cleanup = await connectProperty(/* ... */);
    // Later...
@@ -246,6 +243,7 @@ export const initiliseWot = initializeWot;
    ```
 
 4. **Handle errors gracefully:**
+
    ```javascript
    try {
      await connectAll({ baseUrl: 'http://device.local/td' });
@@ -258,4 +256,3 @@ export const initiliseWot = initializeWot;
    - Use `'observe'` for real-time critical properties
    - Use `'poll'` for stable, slow-changing values
    - Use `'auto'` when unsure about device capabilities
-

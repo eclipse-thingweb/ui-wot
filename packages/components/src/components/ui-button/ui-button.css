@@ -8,7 +8,6 @@
   display: inline-block;
 }
 
-
 button.hover\:bg-opacity-10:hover {
   background-color: color-mix(in srgb, var(--hover-bg) 10%, transparent) !important;
 }

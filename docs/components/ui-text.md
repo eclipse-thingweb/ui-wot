@@ -1,20 +1,14 @@
 # text-display
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile Text-Display component designed for WoT device control and monitoring
 It has various features, visual styles and supports text-heavy data display.
 Provides field, area, structured, unstructured, and editable modes with consistent styling.
-
-
-
-
 
 ### Examples
 
@@ -26,17 +20,18 @@ Provides field, area, structured, unstructured, and editable modes with consiste
 <ui-text mode="structured" variant="minimal" value='{"key": "value"}' label="JSON Data"></ui-text>
 <ui-text mode="editable" variant="outlined" value="Edit me" label="Notes" id="notes-field"></ui-text>
 ```
+
 #### Example – JS integration with node-wot browser bundle
 
 ```javascript
-  const textElement = document.getElementById('text-field');
-  const value = await (await thing.readProperty('string')).value();
+const textElement = document.getElementById('text-field');
+const value = await (await thing.readProperty('string')).value();
 
-  await textElement.setValue(value, {
-    writeOperation: async newValue => {
-      await thing.writeProperty('string', String(newValue));
-    },
-  });
+await textElement.setValue(value, {
+  writeOperation: async newValue => {
+    await thing.writeProperty('string', String(newValue));
+  },
+});
 ```
 
 ## Properties
@@ -61,13 +56,11 @@ Provides field, area, structured, unstructured, and editable modes with consiste
 | `value`           | `value`             | Current text value of the component.                                                                                                                                                                                                                                 | `string`                                                            | `''`             |
 | `variant`         | `variant`           | Visual style variant of the text display. - minimal: Text-only with subtle underline - outlined: Border style applied (default) - filled: Background color applied                                                                                                   | `"filled" \| "minimal" \| "outlined"`                               | `'outlined'`     |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                              | Type                         |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `valueMsg` | Emitted when toggle value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<string>>` |
-
 
 ## Methods
 
@@ -78,8 +71,6 @@ Focus the input element (editable mode only).
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `getValue(includeMetadata?: boolean) => Promise<string | { value: string; lastUpdated?: number; status: string; error?: string; }>`
 
@@ -114,8 +105,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: string, options?: { writeOperation?: (value: string) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Set the text value and handle optional operations and status management.
@@ -123,26 +112,22 @@ Set the text value and handle optional operations and status management.
 This is the primary method for connecting text to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 
-
-
-
-
-
 #### Examples
 
 ```html
 await textElement.setValue(value);
 ```
-```javascript
-  const textElement = document.getElementById('text-field');
-  const value = await (await thing.readProperty('string')).value();
 
-  await textElement.setValue(value, {
-    writeOperation: async newValue => {
-      await thing.writeProperty('string', String(newValue));
-    },
-    autoRetry: { attempts: 3, delay: 1000 }
-  });
+```javascript
+const textElement = document.getElementById('text-field');
+const value = await (await thing.readProperty('string')).value();
+
+await textElement.setValue(value, {
+  writeOperation: async newValue => {
+    await thing.writeProperty('string', String(newValue));
+  },
+  autoRetry: { attempts: 3, delay: 1000 },
+});
 ```
 
 #### Parameters
@@ -174,6 +159,3 @@ Perfect for WebSocket updates or polling from remote devices.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

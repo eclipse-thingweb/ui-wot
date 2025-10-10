@@ -1,20 +1,14 @@
 # ui-file-picker
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile file picker component designed for WoT device control.
 
 It supports single and multiple file selection, drag-and-drop, and file type restrictions.
-
-
-
-
 
 ### Examples
 
@@ -25,28 +19,32 @@ It supports single and multiple file selection, drag-and-drop, and file type res
 <ui-file-picker multiple="true" label="Select Images" accept="image/*"></ui-file-picker>
 <ui-file-picker label="Device Files" show-last-updated="true"></ui-file-picker>
 ```
+
 #### Example – JS integration with node-wot browser bundle
 
 ```javascript
 const file = document.getElementById('file');
-await file.setUpload(async (fileData) => {
-  console.log('File processed:', fileData.name, 'Size:', fileData.size);
-  // Just log the file data, don't invoke action yet
-  return { success: true, message: 'File processed successfully' };
-}, {
-  propertyName: 'selectedFile',
-  writeProperty: async (prop, value) => {
-    console.log('Writing to property:', prop, value);
-    await thing.writeProperty(prop, value);
-  }
-});
+await file.setUpload(
+  async fileData => {
+    console.log('File processed:', fileData.name, 'Size:', fileData.size);
+    // Just log the file data, don't invoke action yet
+    return { success: true, message: 'File processed successfully' };
+  },
+  {
+    propertyName: 'selectedFile',
+    writeProperty: async (prop, value) => {
+      console.log('Writing to property:', prop, value);
+      await thing.writeProperty(prop, value);
+    },
+  },
+);
 ```
 
 ## Properties
 
 | Property          | Attribute           | Description                                                                               | Type                                    | Default     |
 | ----------------- | ------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `accept`          | `accept`            | File type restrictions (e.g., ".pdf,.doc", "image/*")                                     | `string`                                | `undefined` |
+| `accept`          | `accept`            | File type restrictions (e.g., ".pdf,.doc", "image/\*")                                    | `string`                                | `undefined` |
 | `color`           | `color`             | Color theme for the active state matching to thingsweb theme                              | `"neutral" \| "primary" \| "secondary"` | `'primary'` |
 | `dark`            | `dark`              | Enable dark mode theme styling when true                                                  | `boolean`                               | `false`     |
 | `disabled`        | `disabled`          | Disable user interaction when true                                                        | `boolean`                               | `false`     |
@@ -57,13 +55,11 @@ await file.setUpload(async (fileData) => {
 | `showLastUpdated` | `show-last-updated` | Show last updated timestamp below the component                                           | `boolean`                               | `false`     |
 | `showStatus`      | `show-status`       | Show visual operation status indicators (loading, success, failed) right to the component | `boolean`                               | `true`      |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                                   | Type                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `valueMsg` | Emitted when file picker value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<File[]>>` |
-
 
 ## Methods
 
@@ -77,8 +73,6 @@ Perfect for WebSocket updates or polling from remote devices.
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `getFiles(includeMetadata?: boolean) => Promise<File[] | { value: File[]; lastUpdated?: number; status: string; error?: string; }>`
 
@@ -113,8 +107,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setUpload(operation: (fileData: { name: string; size: number; type: string; content: string; }) => Promise<any>, options?: { propertyName?: string; writeProperty?: (propertyName: string, value: any) => Promise<void>; }) => Promise<boolean>`
 
 Sets the file picker upload operation with optional device communication api and other options.
@@ -122,40 +114,42 @@ Sets the file picker upload operation with optional device communication api and
 This is the primary method for connecting file pickers to real devices.
 Files are automatically converted to base64 with metadata for WoT integration.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 const file = document.getElementById('file');
-await file.setUpload(async (fileData) => {
-  console.log('File processed:', fileData.name, 'Size:', fileData.size);
-  // Just log the file data, don't invoke action yet
-  return { success: true, message: 'File processed successfully' };
-}, {
-  propertyName: 'selectedFile',
-  writeProperty: async (prop, value) => {
-    console.log('Writing to property:', prop, value);
-    await thing.writeProperty(prop, value);
-  }
-});
+await file.setUpload(
+  async fileData => {
+    console.log('File processed:', fileData.name, 'Size:', fileData.size);
+    // Just log the file data, don't invoke action yet
+    return { success: true, message: 'File processed successfully' };
+  },
+  {
+    propertyName: 'selectedFile',
+    writeProperty: async (prop, value) => {
+      console.log('Writing to property:', prop, value);
+      await thing.writeProperty(prop, value);
+    },
+  },
+);
 ```
+
 ```javascript
 const files = document.getElementById('files');
-await files.setUpload(async (fileData) => {
-  console.log('File processed:', fileData.name, 'Size:', fileData.size);
-  // Just log the file data, don't invoke action yet
-  return { success: true, message: 'File processed successfully' };
-}, {
-  propertyName: 'fileList',
-  writeProperty: async (prop, value) => {
-    console.log('Writing to property:', prop, value);
-    await thing.writeProperty(prop, value);
-  }
-});
+await files.setUpload(
+  async fileData => {
+    console.log('File processed:', fileData.name, 'Size:', fileData.size);
+    // Just log the file data, don't invoke action yet
+    return { success: true, message: 'File processed successfully' };
+  },
+  {
+    propertyName: 'fileList',
+    writeProperty: async (prop, value) => {
+      console.log('Writing to property:', prop, value);
+      await thing.writeProperty(prop, value);
+    },
+  },
+);
 ```
 
 #### Parameters
@@ -170,4 +164,3 @@ await files.setUpload(async (fileData) => {
 Type: `Promise<boolean>`
 
 Promise resolving to true if successful, false if failed
-

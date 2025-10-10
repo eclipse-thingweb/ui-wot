@@ -217,8 +217,8 @@ export function AffordanceSelectionPage() {
                     ? 'border-gray-500'
                     : 'border-gray-400'
                   : theme === 'dark'
-                  ? 'border-gray-700 hover:border-gray-600'
-                  : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-gray-700 hover:border-gray-600'
+                    : 'border-gray-200 hover:border-gray-300'
               }`}
               style={
                 selectedAffordances.includes(affordance.key)

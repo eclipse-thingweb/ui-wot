@@ -35,7 +35,7 @@ export class UiNotification {
   /**
    * Type of notification for different visual styling and icons.
    * - info: General information (blue)
-   * - success: Success messages (green) 
+   * - success: Success messages (green)
    * - warning: Warning messages (orange)
    * - error: Error messages (red)
    */
@@ -100,7 +100,7 @@ export class UiNotification {
 
     this.isAnimating = true;
     this.isVisible = true;
-    
+
     // Allow animation to complete
     setTimeout(() => {
       this.isAnimating = false;
@@ -146,7 +146,7 @@ export class UiNotification {
       message: this.message,
       type: this.type,
       dismissMethod: method,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     });
 
     // Start exit animation
@@ -173,11 +173,9 @@ export class UiNotification {
   // ============================== LIFECYCLE METHODS ==============================
 
   /** Initialize component state from props */
-  componentWillLoad() {
-  }
+  componentWillLoad() {}
 
-  componentDidLoad() {
-  }
+  componentDidLoad() {}
 
   /** Clean up timers when component is removed */
   disconnectedCallback() {
@@ -197,7 +195,7 @@ export class UiNotification {
   /** Setup auto-dismiss timer for notification */
   private setupAutoDismiss(): void {
     this.clearAutoDismiss();
-    
+
     if (this.duration > 0) {
       this.dismissTimer = window.setTimeout(() => {
         this.dismiss('auto');
@@ -229,7 +227,7 @@ export class UiNotification {
         darkBgClass: 'bg-blue-900/20 border-blue-700',
         darkTextClass: 'text-blue-200',
         darkIconClass: 'text-blue-400',
-        icon: 'info'
+        icon: 'info',
       },
       success: {
         color: 'green',
@@ -239,7 +237,7 @@ export class UiNotification {
         darkBgClass: 'bg-green-900/20 border-green-700',
         darkTextClass: 'text-green-200',
         darkIconClass: 'text-green-400',
-        icon: 'check'
+        icon: 'check',
       },
       warning: {
         color: 'orange',
@@ -249,7 +247,7 @@ export class UiNotification {
         darkBgClass: 'bg-orange-900/20 border-orange-700',
         darkTextClass: 'text-orange-200',
         darkIconClass: 'text-orange-400',
-        icon: 'warning'
+        icon: 'warning',
       },
       error: {
         color: 'red',
@@ -259,8 +257,8 @@ export class UiNotification {
         darkBgClass: 'bg-red-900/20 border-red-700',
         darkTextClass: 'text-red-200',
         darkIconClass: 'text-red-400',
-        icon: 'error'
-      }
+        icon: 'error',
+      },
     };
 
     return configs[this.type] || configs.info;
@@ -274,7 +272,7 @@ export class UiNotification {
       class: `w-5 h-5 ${classes}`,
       fill: 'none',
       stroke: 'currentColor',
-      viewBox: '0 0 24 24'
+      viewBox: '0 0 24 24',
     };
 
     switch (iconType) {
@@ -322,10 +320,7 @@ export class UiNotification {
     const buttonClass = this.dark ? typeConfig.darkIconClass : typeConfig.iconClass;
 
     return (
-      <button
-        class={`ml-auto pl-3 ${buttonClass} hover:opacity-75 transition-opacity`}
-        onClick={this.handleCloseClick}
-      >
+      <button class={`ml-auto pl-3 ${buttonClass} hover:opacity-75 transition-opacity`} onClick={this.handleCloseClick}>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -345,7 +340,7 @@ export class UiNotification {
 
     const typeConfig = this.getTypeConfig();
     let containerClasses = 'notification-container border rounded-lg p-4 shadow-lg transition-all duration-300 ease-in-out';
-    
+
     // Theme-specific styling
     if (this.dark) {
       containerClasses += ` ${typeConfig.darkBgClass} ${typeConfig.darkTextClass}`;
@@ -368,16 +363,10 @@ export class UiNotification {
       <div class={containerClasses} role="alert">
         <div class="flex items-start">
           {/* Icon */}
-          {this.showIcon && (
-            <div class="flex-shrink-0 mr-3">
-              {this.renderIcon(typeConfig.icon, iconClasses)}
-            </div>
-          )}
+          {this.showIcon && <div class="flex-shrink-0 mr-3">{this.renderIcon(typeConfig.icon, iconClasses)}</div>}
 
           {/* Message */}
-          <div class="flex-1 font-medium">
-            {this.message}
-          </div>
+          <div class="flex-1 font-medium">{this.message}</div>
 
           {/* Close button */}
           {this.renderCloseButton()}
@@ -386,10 +375,7 @@ export class UiNotification {
         {/* Progress bar for auto-dismiss */}
         {this.duration > 0 && this.isVisible && !this.isAnimating && (
           <div class="mt-2 h-1 bg-black/10 rounded-full overflow-hidden">
-            <div 
-              class={`h-full bg-current opacity-30 notification-progress`}
-              style={{ animationDuration: `${this.duration}ms` }}
-            ></div>
+            <div class={`h-full bg-current opacity-30 notification-progress`} style={{ animationDuration: `${this.duration}ms` }}></div>
           </div>
         )}
       </div>

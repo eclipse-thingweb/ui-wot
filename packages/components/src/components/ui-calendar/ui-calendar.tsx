@@ -784,38 +784,36 @@ export class UiCalendar {
   private getDisplayValue() {
     // Return empty string if no valid date is selected
     if (!this.selectedDate || isNaN(this.selectedDate.getTime())) return '';
-    
+
     const currentDate = this.selectedDate;
     const addZero = (numberValue: number) => String(numberValue).padStart(2, '0');
-    
+
     // Create mapping of date format
     const dateMap: Record<string, string> = {
-      dd: addZero(currentDate.getDate()),           // Day of month (01-31)
-      mm: addZero(currentDate.getMonth() + 1),     // Month (01-12, +1 because getMonth() returns 0-11)
-      yyyy: String(currentDate.getFullYear()),         // Full year (e.g., 2024)
+      dd: addZero(currentDate.getDate()), // Day of month (01-31)
+      mm: addZero(currentDate.getMonth() + 1), // Month (01-12, +1 because getMonth() returns 0-11)
+      yyyy: String(currentDate.getFullYear()), // Full year (e.g., 2024)
     };
-    
+
     let formatPattern = this.dateFormat;
-    formatPattern = formatPattern.replace(/yyyy|YYYY|MM|mm|dd|DD/g, token => 
-      dateMap[token.toLowerCase()]
-    );
-    
+    formatPattern = formatPattern.replace(/yyyy|YYYY|MM|mm|dd|DD/g, token => dateMap[token.toLowerCase()]);
+
     // If time is not included, return just the date part
     if (!this.includeTime) return formatPattern;
-    
+
     // Handle time formatting when includeTime is enabled
-    const hr24Format = currentDate.getHours();     // 0-23 format
+    const hr24Format = currentDate.getHours(); // 0-23 format
     const minFormatted = addZero(currentDate.getMinutes());
-    
+
     if (this.timeFormat === '12') {
       // Convert to 12-hour format with AM/PM
       const isAM = hr24Format < 12;
       const hr12Format = hr24Format % 12 === 0 ? 12 : hr24Format % 12;
       const amPmIndicator = isAM ? 'AM' : 'PM';
-      
+
       return `${formatPattern} ${addZero(hr12Format)}:${minFormatted} ${amPmIndicator}`;
     }
-    
+
     // Return 24-hour format
     return `${formatPattern} ${addZero(hr24Format)}:${minFormatted}`;
   }
@@ -824,22 +822,22 @@ export class UiCalendar {
   private parseDate(dateValue: string): Date {
     // Return invalid date for empty input
     if (!dateValue) return new Date(NaN);
-    
+
     const inputFormat = this.format.toLowerCase();
-    
+
     // Handle Unix/Epoch timestamp in milliseconds (e.g., "1640995200000")
     if ((inputFormat === 'epoch-ms' || inputFormat === 'unix-ms') && /^-?\d+$/.test(dateValue)) {
       return new Date(parseInt(dateValue, 10));
     }
-    
+
     // Handle Unix/Epoch timestamp in seconds (e.g., "1640995200")
     if ((inputFormat === 'epoch-s' || inputFormat === 'unix') && /^-?\d+$/.test(dateValue)) {
       return new Date(parseInt(dateValue, 10) * 1000); // Convert seconds to milliseconds
     }
-    
+
     // Handle RFC 2822 format (e.g., "Mon, 25 Dec 1995 13:30:00 GMT")
     if (inputFormat === 'rfc2822') return new Date(dateValue);
-    
+
     // Default: ISO format and other standard formats (e.g., "2023-12-25T10:30:00.000Z")
     return new Date(dateValue);
   }
@@ -847,20 +845,20 @@ export class UiCalendar {
   /** Format Date object into string */
   private formatDate(dateObject: Date): string {
     const outputFormat = this.format.toLowerCase();
-    
+
     // Return Unix/Epoch timestamp in milliseconds (e.g., "1640995200000")
     if (outputFormat === 'epoch-ms' || outputFormat === 'unix-ms') {
       return String(dateObject.getTime());
     }
-    
+
     // Return Unix/Epoch timestamp in seconds (e.g., "1640995200")
     if (outputFormat === 'epoch-s' || outputFormat === 'unix') {
       return String(Math.floor(dateObject.getTime() / 1000)); // Convert milliseconds to seconds
     }
-    
+
     // Return RFC 2822 format (e.g., "Mon, 25 Dec 1995 13:30:00 GMT")
     if (outputFormat === 'rfc2822') return dateObject.toUTCString();
-    
+
     // Default: Return ISO 8601 format (e.g., "2023-12-25T10:30:00.000Z")
     return dateObject.toISOString();
   }
@@ -1132,8 +1130,8 @@ export class UiCalendar {
                                     this.selectedHour === hour
                                       ? 'text-white'
                                       : this.dark
-                                      ? 'bg-gray-700 text-white hover:bg-gray-600'
-                                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                        ? 'bg-gray-700 text-white hover:bg-gray-600'
+                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                   }`}
                                   style={this.selectedHour === hour ? { backgroundColor: this.getColorVars().main } : {}}
                                   onClick={async () => await this.setHour(hour)}
@@ -1158,8 +1156,8 @@ export class UiCalendar {
                                     this.selectedMinute === minute
                                       ? 'text-white'
                                       : this.dark
-                                      ? 'bg-gray-700 text-white hover:bg-gray-600'
-                                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                        ? 'bg-gray-700 text-white hover:bg-gray-600'
+                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                   }`}
                                   style={this.selectedMinute === minute ? { backgroundColor: this.getColorVars().main } : {}}
                                   onClick={async () => await this.setMinute(minute)}

@@ -1,20 +1,14 @@
 # ui-event
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile event listener component designed for WoT device control.
 
 It has various features, multiple visual styles, status and last updated timestamps.
-
-
-
-
 
 ### Examples
 
@@ -25,6 +19,7 @@ It has various features, multiple visual styles, status and last updated timesta
 <ui-event variant="filled" label="Motion Events" max-events="20" show-timestamp="true"></ui-event>
 <ui-event variant="outlined" label="Device Status" show-last-updated="true"></ui-event>
 ```
+
 #### Example – JS integaration with node-wot browser bundle
 
 ```javascript
@@ -37,7 +32,7 @@ await thing.subscribeEvent('on-bool', async data => {
   await eventListener.addEvent({
     event: 'on-bool',
     value,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 ```
@@ -59,13 +54,11 @@ await thing.subscribeEvent('on-bool', async data => {
 | `showTimestamp`   | `show-timestamp`    | Show event timestamps                                                                                                              | `boolean`                               | `true`       |
 | `variant`         | `variant`           | Visual style variant of the event listener. - outlined: Border-focused design with outline style - filled: Solid background design | `"filled" \| "outlined"`                | `'outlined'` |
 
-
 ## Events
 
 | Event           | Description                                                                                      | Type                      |
 | --------------- | ------------------------------------------------------------------------------------------------ | ------------------------- |
 | `eventReceived` | Emitted when an event is received. Contains the event data with metadata and source information. | `CustomEvent<UiMsg<any>>` |
-
 
 ## Methods
 
@@ -84,8 +77,6 @@ This method adds an event.
 
 Type: `Promise<void>`
 
-
-
 ### `clearEvents() => Promise<void>`
 
 Clear event history and reset counters.
@@ -93,8 +84,6 @@ Clear event history and reset counters.
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `getEventHistory(includeMetadata?: boolean) => Promise<Array<any> | { value: Array<any>; lastUpdated?: number; status: string; error?: string; }>`
 
@@ -139,8 +128,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `startListening() => Promise<void>`
 
 Starts listening for events with optional device communication api and other options.
@@ -148,7 +135,6 @@ Starts listening for events with optional device communication api and other opt
 This is the primary method for connecting event listeners to real devices.
 It supports event filtering, history management, and status tracking.
 
-
 #### Example
 
 ```html
@@ -156,6 +142,7 @@ It supports event filtering, history management, and status tracking.
 <ui-event variant="filled" label="Motion Events" max-events="20" show-timestamp="true"></ui-event>
 <ui-event variant="outlined" label="Device Status" show-last-updated="true"></ui-event>
 ```
+
 ```javascript
 const eventListener = document.getElementById('event-listener');
 await eventListener.startListening();
@@ -166,12 +153,11 @@ await thing.subscribeEvent('on-bool', async data => {
   await eventListener.addEvent({
     event: 'on-bool',
     value,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 ```
 
-
 #### Example
 
 ```html
@@ -179,6 +165,7 @@ await thing.subscribeEvent('on-bool', async data => {
 <ui-event variant="filled" label="Motion Events" max-events="20" show-timestamp="true"></ui-event>
 <ui-event variant="outlined" label="Device Status" show-last-updated="true"></ui-event>
 ```
+
 ```javascript
 const eventListener = document.getElementById('event-listener');
 await eventListener.startListening();
@@ -189,12 +176,11 @@ await thing.subscribeEvent('on-bool', async data => {
   await eventListener.addEvent({
     event: 'on-bool',
     value,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 ```
 
-
 #### Example
 
 ```html
@@ -202,6 +188,7 @@ await thing.subscribeEvent('on-bool', async data => {
 <ui-event variant="filled" label="Motion Events" max-events="20" show-timestamp="true"></ui-event>
 <ui-event variant="outlined" label="Device Status" show-last-updated="true"></ui-event>
 ```
+
 ```javascript
 const eventListener = document.getElementById('event-listener');
 await eventListener.startListening();
@@ -212,7 +199,7 @@ await thing.subscribeEvent('on-bool', async data => {
   await eventListener.addEvent({
     event: 'on-bool',
     value,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 ```
@@ -239,3 +226,4 @@ Promise resolving to void when listening stops
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
+```

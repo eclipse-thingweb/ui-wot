@@ -1,20 +1,14 @@
 # ui-checkbox
 
-
-
 [Properties](#properties) · [Events](#events) · [Methods](#methods)
-<!-- Auto Generated Below -->
 
+<!-- Auto Generated Below -->
 
 ## Overview
 
 A versatile checkbox component designed for WoT device control.
 
 It has various features, multiple visual styles, status and last updated timestamps.
-
-
-
-
 
 ### Examples
 
@@ -25,6 +19,7 @@ It has various features, multiple visual styles, status and last updated timesta
 <ui-checkbox variant="radio" value="false" label="Enable Notifications"></ui-checkbox>
 <ui-checkbox variant="filled" label="Device Status" show-last-updated="true"></ui-checkbox>
 ```
+
 #### Example – JS integaration with node-wot browser bundle
 
 ```javascript
@@ -34,7 +29,7 @@ const initialValue = Boolean(await (await thing.readProperty('enabled')).value()
 await checkbox.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('enabled', value);
-  }
+  },
 });
 ```
 
@@ -52,13 +47,11 @@ await checkbox.setValue(initialValue, {
 | `value`           | `value`             | Current boolean value of the checkbox                                                                                                                                                | `boolean`                               | `false`      |
 | `variant`         | `variant`           | Visual style variant of the checkbox. - radio: Clean design with transparent background - outlined: Border-focused design with outline style - filled: Solid background when checked | `"filled" \| "outlined" \| "radio"`     | `'outlined'` |
 
-
 ## Events
 
 | Event      | Description                                                                                                                                                | Type                          |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | `valueMsg` | Emitted when checkbox value changes through user interaction or setValue calls. Contains the new value, previous value, timestamp, and source information. | `CustomEvent<UiMsg<boolean>>` |
-
 
 ## Methods
 
@@ -95,8 +88,6 @@ Useful when managing device communication externally and you want to show loadin
 
 Type: `Promise<void>`
 
-
-
 ### `setValue(value: boolean, options?: { writeOperation?: (value: boolean) => Promise<any>; readOperation?: () => Promise<any>; optimistic?: boolean; autoRetry?: { attempts: number; delay: number; }; _isRevert?: boolean; }) => Promise<boolean>`
 
 Sets the checkbox value with optional device communication api and other options.
@@ -104,16 +95,12 @@ Sets the checkbox value with optional device communication api and other options
 This is the primary method for connecting checkboxes to real devices.
 It supports optimistic updates, error handling, and automatic retries.
 
-
-
-
-
-
 #### Examples
 
 ```javascript
 await checkbox.setValue(true);
 ```
+
 ```javascript
 const checkbox = document.getElementById('device-checkbox');
 const initialValue = Boolean(await (await thing.readProperty('enabled')).value());
@@ -121,7 +108,7 @@ await checkbox.setValue(initialValue, {
   writeOperation: async value => {
     await thing.writeProperty('enabled', value);
   },
-  autoRetry: { attempts: 3, delay: 1000 }
+  autoRetry: { attempts: 3, delay: 1000 },
 });
 ```
 
@@ -154,6 +141,3 @@ Perfect for WebSocket updates or polling from remote devices.
 #### Returns
 
 Type: `Promise<void>`
-
-
-

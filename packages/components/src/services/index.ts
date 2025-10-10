@@ -1,8 +1,1 @@
-export {
-  initializeWot,
-  initiliseWot,
-  connectProperty,
-  connectAction,
-  connectEvent,
-  connectAll,
-} from './browser-bundle-connect';
+export { initializeWot, initiliseWot, connectProperty, connectAction, connectEvent, connectAll } from './browser-bundle-connect';

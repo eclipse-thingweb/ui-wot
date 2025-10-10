@@ -16,8 +16,18 @@
 - [Quick Start](#quick-start)
   - [1. Vanilla HTML with node-wot Browser Bundle](#1-vanilla-html-with-node-wot-browser-bundle)
   - [2. Framework Integration (React/Vue/Angular)](#2-framework-integration-reactvueangular)
+    - [React Example (Complete Setup)](#react-example-complete-setup)
 - [Components Overview](#components-overview)
+  - [Input Components](#input-components)
+  - [Action Components](#action-components)
+  - [Monitoring Components](#monitoring-components)
+  - [Complex Data Components](#complex-data-components)
 - [Services](#services)
+  - [Core Services Overview](#core-services-overview)
+    - [`initializeWot()`](#initializewot)
+    - [`connectAll(options)`](#connectalloptions)
+    - [Individual Connection Utilities](#individual-connection-utilities)
+  - [TD attributes that can be attached to any component using the service](#td-attributes-that-can-be-attached-to-any-component-using-the-service)
 
 ## Installation
 
@@ -44,7 +54,7 @@ For vanilla HTML applications, you need to add this script inside the head tag, 
 <script type="module" src="<your-directory-path>/ui-wot/packages/components/www/build/ui-wot-components.esm.js"></script>
 ```
 
-To interact with a TD, you also need the node-wot browser bundle:
+To interact with a Thing, you also need the node-wot browser bundle:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@node-wot/browser-bundle@latest/dist/wot-bundle.min.js"></script>
@@ -55,41 +65,48 @@ Example:
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Required: node-wot browser bundle for WoT functionality -->
-    <script src="https://cdn.jsdelivr.net/npm/@node-wot/browser-bundle@latest/dist/wot-bundle.min.js"></script>
-    <!-- Load all components -->
-    <script type="module" src="<your-directory-path>/ui-wot/packages/components/www/build/ui-wot-components.esm.js"></script>
-  </head>
-  <body>
-    <ui-toggle id="power-toggle" label="Device Power"></ui-toggle>
-    <ui-slider id="brightness" label="Brightness" min="0" max="100"></ui-slider>
-    <ui-button id="restart-btn" label="Restart Device"></ui-button>
-  </body>
-  <script>
-    // Put your TD connection logic here, use defined methods for ease
 
-    (async () => {
-      // Wait for components to be defined
-      await Promise.all(['ui-toggle', 'ui-slider', 'ui-button'].map(tag => customElements.whenDefined(tag)));
+<head>
+  <!-- Required: node-wot browser bundle for WoT functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/@node-wot/browser-bundle@latest/dist/wot-bundle.min.js"></script>
+  <!-- Load all components -->
+  <script type="module"
+    src="./packages/components/www/build/ui-wot-components.esm.js"></script> 
+    <!-- the path assumes an html in the root of the repository. Change as you see fit or use the npm module -->
+</head>
 
-      // Initialize WoT and consume Thing Description
-      const servient = new window.WoT.Core.Servient();
-      servient.addClientFactory(new window.WoT.Http.HttpClientFactory());
-      const wot = await servient.start();
-      const td = await fetch('http://your-device/td').then(r => r.json());
-      const thing = await wot.consume(td);
+<body>
+  <ui-slider id="integer" label="Integer" min="0" max="100" value="50"></ui-slider>
+</body>
+<script>
+  // Put your TD connection logic here, use defined methods for ease
 
-      // Connect components manually - wait for the component to be ready
-      const toggle = document.getElementById('power-toggle');
-      await toggle.componentOnReady();
-      const initialPower = await (await thing.readProperty('power')).value();
-      await toggle.setValue(initialPower, {
-        writeOperation: async value => await thing.writeProperty('power', value),
-      });
-    })();
-  </script>
+  (async () => {
+    // Wait for components to be defined
+    await Promise.all(['ui-slider'].map(tag => customElements.whenDefined(tag)));
+
+    // Initialize WoT and consume Thing Description
+    const servient = new window.WoT.Core.Servient();
+    servient.addClientFactory(new window.WoT.Http.HttpClientFactory());
+    const wot = await servient.start();
+    const td = await fetch('http://plugfest.thingweb.io/http-data-schema-thing').then(r => r.json());
+    const thing = await wot.consume(td);
+
+    // Connect components manually - wait for the component to be ready
+    const slider = document.getElementById('integer');
+    await slider.componentOnReady();
+    const curVal = await (await thing.readProperty('int')).value();
+    console.log(`Initial value: ${curVal}`);
+    await slider.setValue(curVal, {
+       writeOperation: async value => {
+         await thing.writeProperty('int', value);
+       }
+     });
+  })();
+</script>
+
 </html>
+
 ```
 
 ### 2. Framework Integration (React/Vue/Angular)

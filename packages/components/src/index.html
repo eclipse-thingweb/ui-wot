@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="https://thingweb.io/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wot UI Components</title>
+    <title>WoT UI Components</title>
     <script type="module" src="/build/ui-wot-components.esm.js"></script>
     <!--  Component Module -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -67,7 +67,7 @@
     <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 transition-colors duration-300">
       <div class="flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">Wot UI Components</h1>
+        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">WoT UI Components</h1>
         <div class="flex items-center gap-3">
           <span class="text-sm text-gray-600 dark:text-gray-300">Light</span>
           <ui-toggle id="theme-toggle" variant="circle" color="primary"></ui-toggle>
@@ -482,11 +482,11 @@
               <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300">Read-only Slider</h4>
               <ui-slider readonly="true" value="75" min="0" max="100" label="Sensor Reading" show-last-updated="true" show-status="true"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider 
-  readonly="true" 
-  value="75" 
-  min="0" 
-  max="100" 
+&lt;ui-slider
+  readonly="true"
+  value="75"
+  min="0"
+  max="100"
   label="Sensor Reading"
   show-last-updated="true"
   show-status="true"&gt;
@@ -504,8 +504,8 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Narrow (Default)</h3>
               <ui-slider variant="narrow" min="0" max="100" value="30" label="Brightness"></ui-slider>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider variant="narrow" 
-  min="0" max="100" 
+&lt;ui-slider variant="narrow"
+  min="0" max="100"
   label="Brightness"&gt;</pre
               >
             </div>
@@ -514,8 +514,8 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Wide</h3>
               <ui-slider variant="wide" min="0" max="100" value="60" label="Volume"></ui-slider>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider variant="wide" 
-  min="0" max="100" 
+&lt;ui-slider variant="wide"
+  min="0" max="100"
   label="Volume"&gt;</pre
               >
             </div>
@@ -524,8 +524,8 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Rainbow</h3>
               <ui-slider variant="rainbow" min="0" max="360" value="180" label="Hue"></ui-slider>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider variant="rainbow" 
-  min="0" max="360" 
+&lt;ui-slider variant="rainbow"
+  min="0" max="360"
   label="Hue"&gt;</pre
               >
             </div>
@@ -534,8 +534,8 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Neon</h3>
               <ui-slider variant="neon" min="0" max="100" value="75" label="Intensity"></ui-slider>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider variant="neon" 
-  min="0" max="100" 
+&lt;ui-slider variant="neon"
+  min="0" max="100"
   label="Intensity"&gt;</pre
               >
             </div>
@@ -544,8 +544,8 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Stepped</h3>
               <ui-slider variant="stepped" min="0" max="20" step="5" value="10" label="Steps"></ui-slider>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-slider variant="stepped" 
-  step="5" min="0" max="20" 
+&lt;ui-slider variant="stepped"
+  step="5" min="0" max="20"
   label="Steps"&gt;</pre
               >
             </div>
@@ -560,7 +560,7 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Circle (Default)</h3>
               <ui-slider thumb-shape="circle" min="0" max="100" value="50" label="Circle"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   thumb-shape="circle"&gt;</pre
               >
             </div>
@@ -569,7 +569,7 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Square</h3>
               <ui-slider thumb-shape="square" min="0" max="100" value="40" label="Square"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   thumb-shape="square"&gt;</pre
               >
             </div>
@@ -578,7 +578,7 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Arrow</h3>
               <ui-slider thumb-shape="arrow" min="0" max="100" value="60" label="Arrow"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   thumb-shape="arrow"&gt;</pre
               >
             </div>
@@ -587,7 +587,7 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Triangle</h3>
               <ui-slider thumb-shape="triangle" min="0" max="100" value="30" label="Triangle"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   thumb-shape="triangle"&gt;</pre
               >
             </div>
@@ -596,7 +596,7 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Diamond</h3>
               <ui-slider thumb-shape="diamond" min="0" max="100" value="80" label="Diamond"></ui-slider>
               <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   thumb-shape="diamond"&gt;</pre
               >
             </div>
@@ -616,7 +616,7 @@
                 <ui-slider orientation="horizontal" variant="stepped" min="0" max="20" step="5" value="15" label="Stepped"></ui-slider>
               </div>
               <pre class="mt-4 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   orientation="horizontal"
   variant="narrow"&gt;</pre
               >
@@ -643,7 +643,7 @@
                 </div>
               </div>
               <pre class="mt-20 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider 
+&lt;ui-slider
   orientation="vertical"
   variant="narrow"&gt;</pre
               >
@@ -680,19 +680,19 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ui-slider variant="wide" thumb-shape="square" color="secondary" min="0" max="255" value="128" label="Color"></ui-slider>
             <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider variant="wide" 
-  thumb-shape="square" 
+&lt;ui-slider variant="wide"
+  thumb-shape="square"
   color="secondary"&gt;</pre
             >
             <ui-slider variant="neon" thumb-shape="arrow" color="primary" min="-50" max="50" value="0" label="Temperature"></ui-slider>
             <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider variant="neon" 
-  thumb-shape="arrow" 
+&lt;ui-slider variant="neon"
+  thumb-shape="arrow"
   min="-50" max="50"&gt;</pre
             >
             <ui-slider variant="stepped" step="10" min="0" max="100" value="50" label="Volume"></ui-slider>
             <pre class="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-slider variant="stepped" 
+&lt;ui-slider variant="stepped"
   step="10"&gt;</pre
             >
             <ui-slider disabled="true" min="0" max="100" value="25" label="Disabled"></ui-slider>
@@ -1233,9 +1233,9 @@
                 <ui-calendar variant="outlined" color="neutral" label="Outlined Neutral" dark="true"></ui-calendar>
               </div>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-calendar 
-  variant="outlined" 
-  color="primary" 
+&lt;ui-calendar
+  variant="outlined"
+  color="primary"
   label="Outlined Primary"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1250,9 +1250,9 @@
                 <ui-calendar variant="filled" color="neutral" label="Filled Neutral" dark="true"></ui-calendar>
               </div>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-calendar 
-  variant="filled" 
-  color="primary" 
+&lt;ui-calendar
+  variant="filled"
+  color="primary"
   label="Filled Primary"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1266,10 +1266,10 @@
                 <ui-calendar inline variant="filled" color="secondary" label="Inline Filled"></ui-calendar>
               </div>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200 overflow-x-auto">
-&lt;ui-calendar 
+&lt;ui-calendar
   inline="true"
-  variant="outlined" 
-  color="primary" 
+  variant="outlined"
+  color="primary"
   label="Inline Outlined"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1287,11 +1287,11 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">12-hour Format</h3>
               <ui-calendar variant="outlined" color="primary" label="12-hour Time" include-time="true" time-format="12"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="outlined" 
-  color="primary" 
-  label="12-hour Time" 
-  include-time="true" 
+&lt;ui-calendar
+  variant="outlined"
+  color="primary"
+  label="12-hour Time"
+  include-time="true"
   time-format="12"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1302,11 +1302,11 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">24-hour Format</h3>
               <ui-calendar variant="filled" color="secondary" label="24-hour Time" include-time="true" time-format="24"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="filled" 
-  color="secondary" 
-  label="24-hour Time" 
-  include-time="true" 
+&lt;ui-calendar
+  variant="filled"
+  color="secondary"
+  label="24-hour Time"
+  include-time="true"
   time-format="24"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1321,17 +1321,17 @@
             <div>
               <ui-calendar label="YYYY/MM/DD" date-format="yyyy/mm/dd"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  label="YYYY/MM/DD" 
+&lt;ui-calendar
+  label="YYYY/MM/DD"
   date-format="yyyy/mm/dd"&gt;
 &lt;/ui-calendar&gt;</pre
               >
-            </div>   
+            </div>
             <div>
               <ui-calendar label="DD-MM" date-format="DD-MM"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  label="DD-MM" 
+&lt;ui-calendar
+  label="DD-MM"
   date-format="DD-MM"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1348,10 +1348,10 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">First Day: Monday</h3>
               <ui-calendar variant="outlined" color="primary" label="Week Starts Monday" first-day-of-week="1"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="outlined" 
-  color="primary" 
-  label="Week Starts Monday" 
+&lt;ui-calendar
+  variant="outlined"
+  color="primary"
+  label="Week Starts Monday"
   first-day-of-week="1"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1362,11 +1362,11 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Hide Today/Clear</h3>
               <ui-calendar variant="filled" color="neutral" label="No Today/Clear" show-today-button="false" show-clear-button="false"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="filled" 
-  color="neutral" 
-  label="No Today/Clear" 
-  show-today-button="false" 
+&lt;ui-calendar
+  variant="filled"
+  color="neutral"
+  label="No Today/Clear"
+  show-today-button="false"
   show-clear-button="false"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1378,10 +1378,10 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Show Week Numbers</h3>
               <ui-calendar variant="outlined" color="secondary" label="Week Numbers" show-week-numbers="true"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="outlined" 
-  color="secondary" 
-  label="Week Numbers" 
+&lt;ui-calendar
+  variant="outlined"
+  color="secondary"
+  label="Week Numbers"
   show-week-numbers="true"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1398,11 +1398,11 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Constrain Selectable Dates</h3>
               <ui-calendar variant="outlined" color="primary" label="Only September 2025" min-date="2025-09-01" max-date="2025-09-30"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="outlined" 
-  color="primary" 
-  label="Only September 2025" 
-  min-date="2025-09-01" 
+&lt;ui-calendar
+  variant="outlined"
+  color="primary"
+  label="Only September 2025"
+  min-date="2025-09-01"
   max-date="2025-09-30"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1413,12 +1413,12 @@
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Initial Value</h3>
               <ui-calendar variant="filled" color="secondary" label="With Initial Value" value="2025-09-16T14:30:00" include-time="true" time-format="24"></ui-calendar>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
-&lt;ui-calendar 
-  variant="filled" 
-  color="secondary" 
-  label="With Initial Value" 
-  value="2025-09-16T14:30:00" 
-  include-time="true" 
+&lt;ui-calendar
+  variant="filled"
+  color="secondary"
+  label="With Initial Value"
+  value="2025-09-16T14:30:00"
+  include-time="true"
   time-format="24"&gt;
 &lt;/ui-calendar&gt;</pre
               >
@@ -1711,7 +1711,7 @@
                 >
               </div>
 
-              
+
 
               <!-- Multiple Files -->
               <div>
@@ -1861,7 +1861,7 @@
         }
         window.showNotification = showNotification;
 
-        // Tabs: activation by id convention 
+        // Tabs: activation by id convention
         const tabs = Array.from(document.querySelectorAll('.tab-button'));
         const getContent = btn => document.getElementById(btn.id.replace('-tab', '-content'));
         const activate = btn => {

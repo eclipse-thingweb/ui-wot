@@ -1,0 +1,108 @@
+:host {
+    display: block;
+}
+
+.data-explorer {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875rem;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: #1f2937;
+    overflow-x: auto;
+}
+
+.data-explorer.dark {
+    background-color: #111827;
+    color: #e5e7eb;
+}
+
+.node {
+    margin-left: 1rem;
+    line-height: 1.5;
+}
+
+.key {
+    color: #793a80;
+    font-weight: 600;
+}
+
+.data-explorer.dark .key {
+    color: #d8b4fe;
+}
+
+.separator {
+    color: #4b5563;
+}
+
+.data-explorer.dark .separator {
+    color: #9ca3af;
+}
+
+.value {
+    color: #1d4ed8;
+}
+
+.data-explorer.dark .value {
+    color: #60a5fa;
+}
+
+.value.string {
+    color: #b91c1c;
+}
+
+.data-explorer.dark .value.string {
+    color: #f87171;
+}
+
+.value.number {
+    color: #047857;
+}
+
+.data-explorer.dark .value.number {
+    color: #34d399;
+}
+
+.value.boolean {
+    color: #0c4a6e;
+}
+
+.data-explorer.dark .value.boolean {
+    color: #38bdf8;
+}
+
+.value.null {
+    color: #6b7280;
+}
+
+.data-explorer.dark .value.null {
+    color: #9ca3af;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    user-select: none;
+    margin-right: 0.25rem;
+    color: #4b5563;
+    display: inline-block;
+}
+
+.data-explorer.dark .toggle-btn {
+    color: #9ca3af;
+}
+
+.toggle-btn:hover {
+    color: #111827;
+}
+
+.data-explorer.dark .toggle-btn:hover {
+    color: #f3f4f6;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}

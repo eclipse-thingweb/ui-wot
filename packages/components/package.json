@@ -133,6 +133,7 @@
   "devDependencies": {
     "@stencil-community/postcss": "2.2.0",
     "@stencil/core": "^4.27.1",
+    "@storybook/react": "^10.1.10",
     "@types/aria-query": "^5.0.4",
     "@types/chai": "^5.2.2",
     "@types/deep-eql": "^4.0.2",
@@ -148,6 +149,8 @@
     "jest-cli": "^29.7.0",
     "postcss-import": "16.1.1",
     "puppeteer": "^24.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwindcss": "3.4.17"
   }
 }

@@ -1,0 +1,85 @@
+:host {
+    display: block;
+}
+
+.data-writer {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+}
+
+.data-writer.dark {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.field-group {
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+}
+
+.data-writer.dark .field-group {
+    border-color: #374151;
+    background-color: #111827;
+}
+
+.field {
+    margin-bottom: 0.75rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.data-writer.dark .field label {
+    color: #9ca3af;
+}
+
+.input-light {
+    background-color: #fff;
+    color: #111827;
+    border-color: #d1d5db;
+}
+
+.input-dark {
+    background-color: #374151;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+.input-light:focus,
+.input-dark:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}

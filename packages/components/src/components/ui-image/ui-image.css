@@ -5,6 +5,16 @@
     width: 100%;
 }
 
+.component-label {
+    color: #111827;
+    /* gray-900 */
+}
+
+:host([dark]) .component-label {
+    color: #ffffff;
+    /* white */
+}
+
 .ui-image-card {
     /* File Picker alike base styles */
     border: 2px dashed #e5e7eb;
@@ -17,6 +27,22 @@
     padding: 1rem;
     position: relative;
     max-width: 100%;
+}
+
+.text-secondary {
+    color: #374151;
+}
+
+:host([dark]) .text-secondary {
+    color: #d1d5db;
+}
+
+.text-muted {
+    color: #6b7280;
+}
+
+:host([dark]) .text-muted {
+    color: #9ca3af;
 }
 
 :host([dark]) .ui-image-card {
@@ -42,17 +68,21 @@
     /* text-sm */
     font-weight: 500;
     /* font-medium */
-    color: #111827;
+    color: #ffffff;
     /* gray-900 */
 }
 
+/* Dark mode override needs to target the subtitle specifically if it inherits incorrectly, but usually color inheritance works.
+   The main issue might be the container color.
+*/
 :host([dark]) .header-title {
-    color: #ffffff;
+    color: #f3f4f6;
+    /* gray-100 */
 }
 
-.header-subtitle {
-    font-size: 0.75rem;
-    color: #6b7280;
+:host([dark]) .header-subtitle {
+    color: #9ca3af;
+    /* gray-400 */
 }
 
 /* CONTENT */
@@ -134,6 +164,63 @@ img {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
+    flex-direction: column;
+    /* Changed to column to accommodate drop zone */
+    align-items: center;
+}
+
+.drop-zone {
+    border: 2px dashed #9ca3af;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+    border-color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+:host([dark]) .drop-zone {
+    border-color: #4b5563;
+}
+
+:host([dark]) .drop-zone:hover,
+:host([dark]) .drop-zone.active {
+    border-color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.drop-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+:host([dark]) .drop-text {
+    color: #d1d5db;
+}
+
+.drop-subtext {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.drop-icon {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
 }
 
 .btn-control {

@@ -664,9 +664,17 @@ export namespace Components {
          */
         "canWrite": boolean;
         /**
+          * @default 'primary'
+         */
+        "color": 'primary' | 'secondary' | 'neutral';
+        /**
           * @default false
          */
         "dark": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
         /**
           * @default '240px'
          */
@@ -2501,9 +2509,17 @@ declare namespace LocalJSX {
          */
         "canWrite"?: boolean;
         /**
+          * @default 'primary'
+         */
+        "color"?: 'primary' | 'secondary' | 'neutral';
+        /**
           * @default false
          */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
         /**
           * @default '240px'
          */

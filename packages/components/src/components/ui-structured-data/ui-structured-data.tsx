@@ -44,6 +44,9 @@ export class UiStructuredData {
     /** Whether to show a save button (controlled) or auto-save. */
     @Prop() autoSave: boolean = false;
 
+    /** Enable dark mode themes */
+    @Prop({ reflect: true }) dark: boolean = false;
+
     // --- STATE ---
 
     @State() internalData: any = null;
@@ -60,12 +63,17 @@ export class UiStructuredData {
 
     // --- LIFECYCLE ---
 
-    componentWillLoad() {
+    async componentWillLoad() {
+        // Ensure ui-text is available for the JSON mode
+        if (customElements.get('ui-text') === undefined) {
+            await customElements.whenDefined('ui-text').catch(() => { });
+        }
+
         this.parseData();
         this.activeMode = this.mode;
 
         if (this.tdUrl || this.src) {
-            this.fetchData();
+            await this.fetchData();
         }
     }
 
@@ -459,7 +467,15 @@ export class UiStructuredData {
                     )}
 
                     {this.activeMode === 'json' && (
-                        <pre class="json-pre">{JSON.stringify(this.internalData, null, 2)}</pre>
+                        <ui-text
+                            key={this.lastUpdated || 'json-view'} // Force re-render on updates
+                            mode="structured"
+                            value={this.internalData ? JSON.stringify(this.internalData, null, 2) : '{}'}
+                            showLineNumbers={true}
+                            variant="minimal"
+                            dark={this.dark}
+                            style={{ '--ui-text-font-size': '12px' }}
+                        ></ui-text>
                     )}
                 </div>
 

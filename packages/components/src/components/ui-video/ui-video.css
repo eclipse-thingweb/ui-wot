@@ -1,0 +1,265 @@
+@import '../../global.css';
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.ui-video-card {
+    border: 2px dashed #e5e7eb;
+    border-radius: 0.5rem;
+    background: transparent;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 100%;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.ui-video-card:hover {
+    border-color: var(--color-primary);
+}
+
+:host([dark]) .ui-video-card {
+    border-color: #4b5563;
+}
+
+/* HEADER */
+.card-header {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+:host([dark]) .header-title {
+    color: #f3f4f6;
+}
+
+.header-subtitle {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* CONTENT */
+.card-content {
+    position: relative;
+    background: rgba(248, 250, 252, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+:host([dark]) .card-content {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9ca3af;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.placeholder.clickable {
+    cursor: pointer;
+}
+
+.placeholder.clickable:hover {
+    color: #6b7280;
+    transform: scale(1.02);
+}
+
+.placeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-text {
+    font-size: 0.875rem;
+    font-style: normal;
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+:host([dark]) .loading-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #d1d5db;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* CONTROLS */
+.card-controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-control {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-control.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-control.primary:hover {
+    opacity: 0.9;
+}
+
+.btn-control:not(.primary) {
+    background: transparent;
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.btn-control:not(.primary):hover {
+    opacity: 0.8;
+}
+
+/* File Metadata Row */
+.file-metadata-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    color: #4b5563;
+    /* gray-600 */
+    border-bottom: 1px solid #f3f4f6;
+    /* gray-100 */
+    margin-bottom: 0.5rem;
+}
+
+:host([dark]) .file-metadata-row {
+    color: #9ca3af;
+    /* gray-400 */
+    border-color: #374151;
+    /* gray-700 */
+}
+
+.file-name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65%;
+    text-align: left;
+}
+
+.file-size {
+    font-weight: 400;
+    opacity: 0.8;
+    text-align: right;
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* STATUS */
+.card-status {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.75rem;
+    color: #6b7280;
+    display: flex;
+    justify-content: space-between;
+}
+
+:host([dark]) .card-status {
+    border-color: #374151;
+}
+
+.status-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.status-label {
+    color: #6b7280;
+}
+
+.status-value {
+    color: #111827;
+    font-weight: 500;
+}
+
+:host([dark]) .status-value {
+    color: #f3f4f6;
+}
+
+.status-value.success {
+    color: var(--color-success);
+}
+
+.status-value.error {
+    color: var(--color-danger);
+}
+
+.hidden {
+    display: none;
+}

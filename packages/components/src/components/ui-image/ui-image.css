@@ -1,0 +1,328 @@
+@import '../../global.css';
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.component-label {
+    color: #111827;
+    /* gray-900 */
+}
+
+:host([dark]) .component-label {
+    color: #ffffff;
+    /* white */
+}
+
+.ui-image-card {
+    /* File Picker alike base styles */
+    border: 2px dashed #e5e7eb;
+    /* gray-200 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    background: transparent;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 1rem;
+    position: relative;
+    max-width: 100%;
+}
+
+.text-secondary {
+    color: #374151;
+}
+
+:host([dark]) .text-secondary {
+    color: #d1d5db;
+}
+
+.text-muted {
+    color: #6b7280;
+}
+
+:host([dark]) .text-muted {
+    color: #9ca3af;
+}
+
+:host([dark]) .ui-image-card {
+    border-color: #4b5563;
+    /* gray-600 */
+}
+
+
+/* HEADER - Simplified or Hidden? 
+   File picker puts label outside. We'll keep it inside but cleaner?
+   The user said "same as file tab ui". File Picker has label OUTSIDE.
+   But we have a card structure. I'll make the header very subtle or part of the flow.
+*/
+.card-header {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    color: #ffffff;
+    /* gray-900 */
+}
+
+/* Dark mode override needs to target the subtitle specifically if it inherits incorrectly, but usually color inheritance works.
+   The main issue might be the container color.
+*/
+:host([dark]) .header-title {
+    color: #f3f4f6;
+    /* gray-100 */
+}
+
+:host([dark]) .header-subtitle {
+    color: #9ca3af;
+    /* gray-400 */
+}
+
+/* CONTENT */
+.card-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 240px;
+    background: rgba(248, 250, 252, 0.5);
+    /* slight bg */
+    border-radius: 0.25rem;
+}
+
+:host([dark]) .card-content {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9ca3af;
+    padding: 20px;
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0.25rem;
+}
+
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host([dark]) .loading-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #d1d5db;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* CONTROLS */
+.card-controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-direction: column;
+    /* Changed to column to accommodate drop zone */
+    align-items: center;
+}
+
+.drop-zone {
+    border: 2px dashed #9ca3af;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+    border-color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+:host([dark]) .drop-zone {
+    border-color: #4b5563;
+}
+
+:host([dark]) .drop-zone:hover,
+:host([dark]) .drop-zone.active {
+    border-color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.drop-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+:host([dark]) .drop-text {
+    color: #d1d5db;
+}
+
+.drop-subtext {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.drop-icon {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+}
+
+.btn-control {
+    padding: 0.25rem 0.75rem;
+    /* px-3 py-1 */
+    font-size: 0.875rem;
+    /* text-sm */
+    border-radius: 0.25rem;
+    /* rounded */
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+/* Primary Button (Upload style) */
+.btn-control.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-control.primary:hover {
+    opacity: 0.9;
+}
+
+/* Secondary/Cancel Button */
+.btn-control:not(.primary) {
+    background: transparent;
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.btn-control:not(.primary):hover {
+    opacity: 0.8;
+}
+
+/* File Metadata Row */
+.file-metadata-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    color: #4b5563;
+    /* gray-600 */
+    border-bottom: 1px solid #f3f4f6;
+    /* gray-100 */
+    margin-bottom: 0.5rem;
+}
+
+:host([dark]) .file-metadata-row {
+    color: #9ca3af;
+    /* gray-400 */
+    border-color: #374151;
+    /* gray-700 */
+}
+
+.file-name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65%;
+    text-align: left;
+}
+
+.file-size {
+    font-weight: 400;
+    opacity: 0.8;
+    text-align: right;
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* STATUS */
+.card-status {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.75rem;
+    color: #6b7280;
+    display: flex;
+    justify-content: space-between;
+}
+
+:host([dark]) .card-status {
+    border-color: #374151;
+}
+
+.status-value.success {
+    color: var(--color-success);
+}
+
+.status-value.error {
+    color: var(--color-danger);
+}
+
+.hidden {
+    display: none;
+}

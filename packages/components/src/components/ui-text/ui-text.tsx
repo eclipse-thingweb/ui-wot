@@ -59,7 +59,7 @@ export class UiText {
   @Prop() color: 'primary' | 'secondary' | 'neutral' = 'primary';
 
   /** Enable dark mode theme styling when true */
-  @Prop() dark: boolean = false;
+  @Prop({ reflect: true }) dark: boolean = false;
 
   /** Current text value of the component. */
   @Prop({ mutable: true }) value: string = '';
@@ -616,22 +616,22 @@ export class UiText {
 
   /** Format JSON object keys with syntax highlighting */
   private fmtKey(key: string) {
-    return this.span('text-blue-600 dark:text-blue-400', '"' + key + '"');
+    return this.span('syntax-key', '"' + key + '"');
   }
 
   /** Format JSON string values with syntax highlighting */
   private fmtString(val: string) {
-    return this.span('text-green-700 dark:text-green-400', '"' + val + '"');
+    return this.span('syntax-string', '"' + val + '"');
   }
 
   /** Format JSON number values with syntax highlighting */
   private fmtNumber(n: number) {
-    return this.span('text-amber-600 dark:text-amber-400', String(n));
+    return this.span('syntax-number', String(n));
   }
 
   /** Format JSON boolean and null values with syntax highlighting */
   private fmtBoolNull(v: boolean | null) {
-    return this.span('text-purple-600 dark:text-purple-400', String(v));
+    return this.span('syntax-bool', String(v));
   }
 
   /** Build structured JSON into discrete visible lines with folding metadata */
@@ -792,9 +792,8 @@ export class UiText {
                 <button
                   type="button"
                   onClick={fold.toggle}
-                  class={`w-4 h-4 flex items-center justify-center rounded text-xs border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 ${
-                    this.dark ? 'text-gray-300' : 'text-gray-600'
-                  }`}
+                  class={`w-4 h-4 flex items-center justify-center rounded text-xs border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 ${this.dark ? 'text-gray-300' : 'text-gray-600'
+                    }`}
                   tabindex="-1"
                 >
                   {fold.collapsed ? '+' : '−'}
@@ -848,9 +847,8 @@ export class UiText {
                   <button
                     type="button"
                     onClick={() => this.toggleFold(line.path)}
-                    class={`w-4 h-4 flex items-center justify-center rounded text-xs border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 ${
-                      this.dark ? 'text-gray-300' : 'text-gray-600'
-                    }`}
+                    class={`w-4 h-4 flex items-center justify-center rounded text-xs border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 ${this.dark ? 'text-gray-300' : 'text-gray-600'
+                      }`}
                     tabindex="-1"
                     aria-label={folded ? 'Expand' : 'Collapse'}
                   >
@@ -962,53 +960,16 @@ export class UiText {
 
   /** Generates CSS classes for the text container based on variant, theme and mode */
   private getBaseClasses(): string {
-    // Inline-block for area+resizable so horizontal resize can change width
-    const widthClass = this.mode === 'area' && this.resizable ? 'inline-block' : 'w-full';
-    let classes = `relative ${widthClass} transition-all duration-200 font-sans`;
+    // Inline-block for area+resizable handles by CSS now, we just add the class
+    let classes = `ui-text-container ${this.variant}`;
 
-    switch (this.variant) {
-      case 'minimal':
-        if (this.dark) {
-          classes += ' border-b-2 border-gray-500 bg-transparent';
-        } else {
-          classes += ' border-b-2 border-gray-300 bg-transparent';
-        }
-        break;
-      case 'outlined':
-        if (this.dark) {
-          classes += ' border-2 border-gray-600 bg-gray-800 text-white hover:border-gray-500';
-        } else {
-          classes += ' border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-400';
-        }
-        break;
-      case 'filled':
-        if (this.dark) {
-          classes += ' bg-gray-700 text-white border-2 border-gray-600';
-        } else {
-          classes += ' bg-gray-100 text-gray-900 border-2 border-gray-200';
-        }
-        break;
-    }
+    // Mode-specific class
+    classes += ` mode-${this.mode}`;
 
-    // Mode-specific styling
-    switch (this.mode) {
-      case 'field':
-        classes += ' rounded-md px-3 py-2 min-h-10';
-        break;
-      case 'area':
-        classes += ' rounded-lg px-4 py-3 min-h-24';
-        break;
-      case 'structured':
-        classes += ' rounded-lg px-4 py-3 font-mono text-sm';
-        classes += this.dark ? ' bg-gray-900 border-gray-500' : ' bg-gray-50 border-gray-300';
-        break;
-      case 'unstructured':
-        classes += ' rounded px-3 py-2 min-h-16';
-        classes += this.dark ? ' bg-transparent border-gray-700' : ' bg-transparent border-gray-200';
-        break;
-      case 'editable':
-        classes += ' rounded-md px-3 py-2 min-h-10 cursor-text';
-        break;
+    if (this.mode === 'area' && this.resizable) {
+      classes += ' inline-block'; // Global utility or we can add to css
+    } else {
+      classes += ' w-full'; // Global utility
     }
 
     return classes;
@@ -1066,7 +1027,7 @@ export class UiText {
     return (
       <div class="w-full">
         {/* Label */}
-        {this.label && <label class={`block text-sm font-medium mb-2 ${this.dark ? 'text-gray-200' : 'text-gray-700'}`}>{this.label}</label>}
+        {this.label && <label class="ui-text-label">{this.label}</label>}
 
         <div class="relative inline-flex items-center w-full">
           <div class={`ui-text-container ${baseClasses}`} style={containerStyle} ref={el => (this.containerRef = el)} onTransitionEnd={() => this.scheduleLineCountUpdate()}>
@@ -1081,7 +1042,7 @@ export class UiText {
         {this.mode === 'editable' && this.showSaveButton && (
           <div class="mt-2 flex gap-2">
             <button
-              class="px-3 py-1 text-sm rounded transition-colors border"
+              class="save-btn"
               style={{
                 backgroundColor: this.hasUnsavedChanges ? 'var(--color-primary)' : 'transparent',
                 color: this.hasUnsavedChanges ? 'var(--color-primary-contrast, #fff)' : 'var(--color-primary)',
@@ -1094,13 +1055,13 @@ export class UiText {
             >
               Save
             </button>
-            {this.hasUnsavedChanges && <span class="text-xs text-orange-500 self-center">Unsaved changes</span>}
+            {this.hasUnsavedChanges && <span class="unsaved-msg">Unsaved changes</span>}
           </div>
         )}
 
         {/* Character count */}
         {this.mode === 'editable' && this.showCharCount && (
-          <div class={`text-xs mt-1 text-right ${this.dark ? 'text-gray-400' : 'text-gray-500'}`}>
+          <div class="text-count">
             {(this.showSaveButton ? this.tempValue : this.value).length}
             {this.maxLength && ` / ${this.maxLength}`}
           </div>

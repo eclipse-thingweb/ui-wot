@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="https://thingweb.io/img/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="https://thingweb.io/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WoT UI Components</title>
     <script type="module" src="/build/ui-wot-components.esm.js"></script>
@@ -27,13 +27,16 @@
         color: #067362 !important;
         border-color: #067362 !important;
       }
+
       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
+
       .tab-button {
         border-bottom: 2px solid transparent;
         color: rgb(107 114 128);
@@ -42,27 +45,33 @@
         font-size: 0.875rem;
         transition: all 0.2s;
       }
+
       .tab-button:hover {
         color: rgb(55 65 81);
         border-bottom-color: rgb(209 213 219);
       }
+
       .tab-button.active {
         border-bottom-color: #067362;
         color: #067362;
       }
+
       .dark .tab-button {
         color: rgb(156 163 175);
       }
+
       .dark .tab-button:hover {
         color: rgb(209 213 219);
         border-bottom-color: rgb(75 85 99);
       }
+
       .dark .tab-button.active {
         border-bottom-color: #067362;
         color: #067362;
       }
     </style>
   </head>
+
   <body class="bg-gray-50 dark:bg-gray-900 min-h-screen font-sans transition-colors duration-300">
     <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 transition-colors duration-300">
@@ -92,6 +101,7 @@
             <button id="notification-tab" class="tab-button">Notification</button>
             <button id="color-picker-tab" class="tab-button">Color</button>
             <button id="file-picker-tab" class="tab-button">File</button>
+            <button id="data-tab" class="tab-button">Data</button>
           </nav>
         </div>
       </div>
@@ -1044,7 +1054,17 @@
             <!-- Interactive Mode -->
             <div>
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Editable Mode</h3>
-              <ui-text mode="editable" variant="outlined" color="primary" label="Device Name" value="Smart Thermostat" debounce-ms="800" show-last-updated="true" show-status="true"> </ui-text>
+              <ui-text
+                mode="editable"
+                variant="outlined"
+                color="primary"
+                label="Device Name"
+                value="Smart Thermostat"
+                debounce-ms="800"
+                show-last-updated="true"
+                show-status="true"
+              >
+              </ui-text>
               <pre
                 class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
               >
@@ -1124,7 +1144,13 @@
             <div>
               <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Structured Mode</h3>
               <ui-text mode="structured" color="secondary" label="JSON Data" value='{"temp": 22.5, "humidity": 65}' show-line-numbers></ui-text>
-              <ui-text mode="structured" color="secondary" label="Array Data" value='["espresso","americano","cappuccino","latte","hotChocolate","hotWater"] ' show-line-numbers></ui-text>
+              <ui-text
+                mode="structured"
+                color="secondary"
+                label="Array Data"
+                value='["espresso","americano","cappuccino","latte","hotChocolate","hotWater"] '
+                show-line-numbers
+              ></ui-text>
               <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-text
   mode="structured"
@@ -1277,7 +1303,6 @@
           </div>
         </div>
 
-
         <!-- Time Picker Showcase -->
         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
           <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Time Picker</h2>
@@ -1425,14 +1450,12 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
     <!-- Event Content -->
     <div id="event-content" class="tab-content hidden">
       <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
-
         <!-- Event Variants -->
         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
           <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Event Component Variants</h2>
@@ -1471,7 +1494,7 @@
               >
             </div>
           </div>
-<br>
+          <br />
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Outlined Variant -->
             <div>
@@ -1604,217 +1627,492 @@
             </div>
           </div>
         </div>
-
-
       </div>
-      </div>
+    </div>
 
-      <!-- Color Picker Content -->
-      <div id="color-picker-content" class="tab-content hidden">
-        <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
-          <!-- Basic Usage Examples -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic Color Picker Usage</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Interactive Mode -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Interactive Mode</h3>
-                <ui-color-picker value="#067362" label="Primary Color" show-last-updated="true" show-status="true"> </ui-color-picker>
-                <pre
-                  class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
-                >
+    <!-- Color Picker Content -->
+    <div id="color-picker-content" class="tab-content hidden">
+      <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
+        <!-- Basic Usage Examples -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic Color Picker Usage</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Interactive Mode -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Interactive Mode</h3>
+              <ui-color-picker value="#067362" label="Primary Color" show-last-updated="true" show-status="true"> </ui-color-picker>
+              <pre
+                class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+              >
 &lt;ui-color-picker
   value="#067362"
   label="Primary Color"&gt;
 &lt;/ui-color-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-              <!-- Read-Only Mode -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Read-Only Mode</h3>
-                <ui-color-picker value="#B84A91" label="Secondary Color" disabled show-last-updated="true"> </ui-color-picker>
-                <pre
-                  class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
-                >
+            <!-- Read-Only Mode -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Read-Only Mode</h3>
+              <ui-color-picker value="#B84A91" label="Secondary Color" disabled show-last-updated="true"> </ui-color-picker>
+              <pre
+                class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+              >
 &lt;ui-color-picker
   readonly="true"
   label="Secondary Color"&gt;
 &lt;/ui-color-picker&gt;</pre
-                >
-              </div>
+              >
             </div>
           </div>
+        </div>
 
-          <!-- Additional Examples -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Additional Examples</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Theme Color -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Theme Color</h3>
-                <ui-color-picker value="#ff6b6b" label="Accent Color"></ui-color-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+        <!-- Additional Examples -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Additional Examples</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Theme Color -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Theme Color</h3>
+              <ui-color-picker value="#ff6b6b" label="Accent Color"></ui-color-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-color-picker
   value="#ff6b6b"&gt;
 &lt;/ui-color-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-              <!-- Background Color -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Background Color</h3>
-                <ui-color-picker value="#4ecdc4" label="Background"></ui-color-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            <!-- Background Color -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Background Color</h3>
+              <ui-color-picker value="#4ecdc4" label="Background"></ui-color-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-color-picker
   label="Background"&gt;
 &lt;/ui-color-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-              <!-- Brand Color -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Brand Color</h3>
-                <ui-color-picker value="#45b7d1" label="Brand"></ui-color-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            <!-- Brand Color -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Brand Color</h3>
+              <ui-color-picker value="#45b7d1" label="Brand"></ui-color-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-color-picker
   label="Brand"&gt;
 &lt;/ui-color-picker&gt;</pre
-                >
-              </div>
+              >
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- File Picker Content -->
-      <div id="file-picker-content" class="tab-content hidden">
-        <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
-
-
-          <!-- Basic Usage Examples -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic File Picker Usage</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Single File -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Single File</h3>
-                <ui-file-picker color="primary" label="Upload Document" accept=".pdf,.doc,.docx" show-last-updated="true" show-status="true"> </ui-file-picker>
-                <pre
-                  class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
-                >
+    <!-- File Picker Content -->
+    <div id="file-picker-content" class="tab-content hidden">
+      <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
+        <!-- Basic Usage Examples -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Basic File Picker Usage</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Single File -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Single File</h3>
+              <ui-file-picker color="primary" label="Upload Document" accept=".pdf,.doc,.docx" show-last-updated="true" show-status="true"> </ui-file-picker>
+              <pre
+                class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+              >
 &lt;ui-file-picker
   color="primary"
   label="Upload Document"
   accept=".pdf,.doc,.docx"&gt;
 &lt;/ui-file-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-
-
-              <!-- Multiple Files -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Multiple Files</h3>
-                <ui-file-picker color="secondary" label="Upload Images" accept="image/*" multiple="true" max-files="5" show-last-updated="true"> </ui-file-picker>
-                <pre
-                  class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
-                >
+            <!-- Multiple Files -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Multiple Files</h3>
+              <ui-file-picker color="secondary" label="Upload Images" accept="image/*" multiple="true" max-files="5" show-last-updated="true"> </ui-file-picker>
+              <pre
+                class="mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+              >
 &lt;ui-file-picker
   color="secondary"
   multiple="true"
   accept="image/*"&gt;
 &lt;/ui-file-picker&gt;</pre
-                >
-              </div>
+              >
             </div>
           </div>
+        </div>
 
-          <!-- Colors -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Colors</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Primary -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Primary (Default)</h3>
-                <ui-file-picker color="primary" label="Primary Color" accept="image/*" show-status="true"></ui-file-picker>
-              </div>
-
-              <!-- Secondary -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Secondary</h3>
-                <ui-file-picker color="secondary" label="Secondary Color" accept=".pdf,.doc" show-status="true"></ui-file-picker>
-              </div>
-
-              <!-- Neutral -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Neutral</h3>
-                <ui-file-picker color="neutral" label="Neutral Color" accept="*/*" show-status="true"></ui-file-picker>
-              </div>
+        <!-- Colors -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Colors</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Primary -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Primary (Default)</h3>
+              <ui-file-picker color="primary" label="Primary Color" accept="image/*" show-status="true"></ui-file-picker>
             </div>
 
+            <!-- Secondary -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Secondary</h3>
+              <ui-file-picker color="secondary" label="Secondary Color" accept=".pdf,.doc" show-status="true"></ui-file-picker>
+            </div>
 
+            <!-- Neutral -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Neutral</h3>
+              <ui-file-picker color="neutral" label="Neutral Color" accept="*/*" show-status="true"></ui-file-picker>
+            </div>
           </div>
-          <!-- File Type Restrictions -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">File Type Restrictions</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Images Only -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Images Only</h3>
-                <ui-file-picker color="primary" label="Images" accept="image/*" multiple="true"></ui-file-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+        </div>
+        <!-- File Type Restrictions -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">File Type Restrictions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Images Only -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Images Only</h3>
+              <ui-file-picker color="primary" label="Images" accept="image/*" multiple="true"></ui-file-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-file-picker
   accept="image/*"&gt;
 &lt;/ui-file-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-              <!-- Documents Only -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Documents Only</h3>
-                <ui-file-picker color="secondary" label="Documents" accept=".pdf,.doc,.docx,.txt"></ui-file-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            <!-- Documents Only -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Documents Only</h3>
+              <ui-file-picker color="secondary" label="Documents" accept=".pdf,.doc,.docx,.txt"></ui-file-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-file-picker
   color="secondary"
   accept=".pdf,.doc,.docx"&gt;
 &lt;/ui-file-picker&gt;</pre
-                >
-              </div>
+              >
+            </div>
 
-              <!-- All Files -->
-              <div>
-                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">All Files</h3>
-                <ui-file-picker color="neutral" label="Any File" accept="*/*"></ui-file-picker>
-                <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+            <!-- All Files -->
+            <div>
+              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">All Files</h3>
+              <ui-file-picker color="neutral" label="Any File" accept="*/*"></ui-file-picker>
+              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-file-picker
   color="neutral"
   accept="*/*"&gt;
 &lt;/ui-file-picker&gt;</pre
-                >
-              </div>
+              >
             </div>
           </div>
+        </div>
 
-          <!-- Disabled State -->
-          <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
-              <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Disabled State</h3>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <ui-file-picker color="primary" label="Disabled Primary" disabled="true"></ui-file-picker>
-              </div>
-              <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
+        <!-- Disabled State -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Disabled State</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <ui-file-picker color="primary" label="Disabled Primary" disabled="true"></ui-file-picker>
+          </div>
+          <pre class="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs font-mono text-gray-800 dark:text-gray-200">
 &lt;ui-file-picker color="primary" disabled="true"&gt;&lt;/ui-file-picker&gt;</pre
-              >
+          >
+        </div>
+      </div>
+
+      <!-- Image Sub-Section -->
+      <div class="w-full max-w-5xl -mt-6 mx-auto p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Universal Image Component</h2>
+          <div class="max-w-xl mx-auto">
+            <ui-image
+              id="demo-img-universal"
+              label="Interactive Image Control"
+              can-read="true"
+              can-write="true"
+              accepted-formats="image/*"
+              show-last-updated="true"
+              show-status="true"
+              height="320px"
+            ></ui-image>
+            <pre
+              class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+            >
+&lt;ui-image
+  label="Interactive Image Control"
+  can-read="true"
+  can-write="true"&gt;
+&lt;/ui-image&gt;</pre
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Sub-Section -->
+      <div class="w-full max-w-5xl -mt-6 mx-auto p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Universal Video Component</h2>
+          <div class="max-w-xl mx-auto">
+            <ui-video id="demo-video-universal" label="Entrance Stream" can-read="true" can-write="true" can-observe="true" accepted-formats="video/*" height="300px"></ui-video>
+            <pre
+              class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+            >
+&lt;ui-video
+  label="Entrance Stream"
+  can-read="true"
+  can-write="true"
+  can-observe="true"&gt;
+&lt;/ui-video&gt;</pre
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio Sub-Section -->
+      <div class="w-full max-w-5xl -mt-6 mx-auto p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Universal Audio Component</h2>
+          <div class="max-w-xl mx-auto">
+            <ui-audio id="demo-audio-universal" label="MicInput" can-read="true" can-write="true" can-observe="true" accepted-formats="audio/*"></ui-audio>
+            <pre
+              class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-800 dark:text-gray-200 overflow-x-auto border border-gray-200 dark:border-gray-700"
+            >
+&lt;ui-audio
+  label="MicInput"
+  can-read="true"
+  can-write="true"
+  can-observe="true"&gt;
+&lt;/ui-audio&gt;</pre
+            >
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Data Content -->
+    <div id="data-content" class="tab-content hidden">
+      <!-- Structured Data Sub-Section -->
+      <div class="w-full max-w-5xl -mt-12 mx-auto p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-colors duration-300">
+          <div class="flex flex-col space-y-4 mb-4">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-medium text-gray-900 dark:text-white">Structured Data Visualization</h2>
+              <div class="flex items-center space-x-2">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Examples:</span>
+                <select
+                  id="data-selector"
+                  class="px-2 py-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="lamp">Smart Lamp</option>
+                  <option value="weather">Weather Station</option>
+                  <option value="complex">Complex System</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Custom URL Input -->
+            <div class="flex space-x-2">
+              <input
+                type="text"
+                id="custom-url-input"
+                placeholder="Or paste any JSON URL here..."
+                class="flex-1 px-3 py-1.5 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 outline-none text-gray-800 dark:text-gray-200"
+              />
+              <button
+                id="load-url-btn"
+                class="px-4 py-1.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 text-sm font-medium rounded transition-colors"
+              >
+                Load URL
+              </button>
+            </div>
+          </div>
+          <div class="max-w-4xl mx-auto overflow-hidden">
+            <ui-structured-data id="demo-structured-data" name="Smart Lamp TD" editable="true"> </ui-structured-data>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const sampleData = {
+          '@context': 'https://www.w3.org/2019/wot/td/v1',
+          'title': 'Smart Lamp',
+          'id': 'urn:dev:ops:32473-WoTLamp-1234',
+          'securityDefinitions': {
+            basic_sc: {
+              scheme: 'basic',
+              in: 'header',
+            },
+          },
+          'security': ['basic_sc'],
+          'properties': {
+            status: {
+              type: 'string',
+              forms: [
+                {
+                  href: 'https://mylamp.example.com/status',
+                },
+              ],
+            },
+            brightness: {
+              type: 'integer',
+              minimum: 0,
+              maximum: 100,
+              forms: [
+                {
+                  href: 'https://mylamp.example.com/brightness',
+                },
+              ],
+            },
+          },
+          'actions': {
+            toggle: {
+              forms: [
+                {
+                  href: 'https://mylamp.example.com/toggle',
+                },
+              ],
+            },
+          },
+          'events': {
+            overheating: {
+              data: {
+                type: 'string',
+              },
+              forms: [
+                {
+                  href: 'https://mylamp.example.com/oh',
+                },
+              ],
+            },
+          },
+        };
+
+        const weatherData = {
+          '@context': 'https://www.w3.org/2019/wot/td/v1',
+          'title': 'Weather Station',
+          'id': 'urn:dev:ops:32473-Weather-1234',
+          'properties': {
+            temperature: {
+              type: 'number',
+              readOnly: true,
+              unit: 'degree Celsius',
+            },
+            humidity: {
+              type: 'number',
+              readOnly: true,
+              unit: 'percent',
+            },
+          },
+        };
+
+        const complexData = {
+          projectName: 'MegaStructure 3000',
+          isActive: true,
+          configurations: [
+            { id: 1, name: 'Basic', modules: ['Auth', 'Database'] },
+            { id: 2, name: 'Advanced', modules: ['Auth', 'Database', 'AI', 'Analytics'] },
+          ],
+          metrics: {
+            cpu: { core1: 45, core2: 60, temp: 78.5 },
+            memory: { used: 8092, total: 16384, units: 'MB' },
+          },
+          deeplyNested: {
+            level1: {
+              level2: {
+                level3: {
+                  secret: 'The component handles any depth!',
+                  nullValue: null,
+                },
+              },
+            },
+          },
+        };
+
+        const el = document.getElementById('demo-structured-data');
+        if (el) {
+          el.data = sampleData; // Initial Load
+        }
+
+        // Dropdown Logic
+        const selector = document.getElementById('data-selector');
+        if (selector) {
+          selector.addEventListener('change', e => {
+            if (!el) return;
+            const value = e.target.value;
+
+            if (value === 'lamp') {
+              el.data = sampleData;
+              el.name = 'Smart Lamp TD';
+            } else if (value === 'weather') {
+              el.data = weatherData;
+              el.name = 'Weather Station TD';
+            } else if (value === 'complex') {
+              el.data = complexData;
+              el.name = 'Complex System Dump';
+            }
+          });
+        }
+
+        // URL Load Logic
+        const urlInput = document.getElementById('custom-url-input');
+        const loadBtn = document.getElementById('load-url-btn');
+
+        if (urlInput && loadBtn) {
+          const loadUrl = async () => {
+            const url = urlInput.value.trim();
+            if (!url) return;
+
+            // Set Loading State (optional visual feedback)
+            loadBtn.textContent = 'Loading...';
+
+            try {
+              // If the component supports 'src', we can just set it.
+              // But since we are manually handling data here to show "reactivity" with local objects,
+              // let's fetch it manually and inject it, or just set .src on the element?
+              // The component supports 'src'. Let's use that for simplicity and show it works!
+
+              // OPTION 1: Set src directly (Component handles fetching)
+              // el.removeAttribute('data'); // Might need to clear data prop preference?
+              // el.src = url;
+
+              // OPTION 2: Fetch here (More formatting control/error handling in UI)
+              const res = await fetch(url);
+              if (!res.ok) throw new Error(`HTTP ${res.status}`);
+              const json = await res.json();
+
+              el.data = json;
+              el.name = json.title ? `${json.title} TD` : 'Custom Data';
+              el.removeAttribute('src'); // Ensure local data takes precedence
+
+              // Clear selector to indicate custom state?
+              if (selector) selector.value = '';
+            } catch (err) {
+              alert('Failed to load JSON: ' + err.message);
+            } finally {
+              loadBtn.textContent = 'Load URL';
+            }
+          };
+
+          loadBtn.addEventListener('click', loadUrl);
+          urlInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') loadUrl();
+          });
+        }
+      })();
+    </script>
+
     <!-- End Content Wrapper -->
 
     <script>
       (() => {
         const html = document.documentElement;
-        const componentsSel = 'ui-toggle, ui-slider, ui-number-picker, ui-button, ui-checkbox, ui-text, ui-calendar, ui-event, ui-notification, ui-color-picker, ui-file-picker';
+        const componentsSel =
+          'ui-toggle, ui-slider, ui-number-picker, ui-button, ui-checkbox, ui-text, ui-calendar, ui-event, ui-notification, ui-color-picker, ui-file-picker, ui-image, ui-video, ui-audio';
 
         const setTheme = dark => {
           html.classList.toggle('dark', !!dark);
@@ -1884,15 +2182,15 @@
 
     <script>
       (function () {
-        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
         const connect = (nodeList, fallback) => {
-          nodeList.forEach((el) => {
+          nodeList.forEach(el => {
             if (!el || typeof el.setValue !== 'function') return;
-            const current = (typeof el.value !== 'undefined' && el.value !== null)
-              ? el.value
-              : (el.getAttribute && el.getAttribute('value')) ?? fallback;
+            const current = typeof el.value !== 'undefined' && el.value !== null ? el.value : ((el.getAttribute && el.getAttribute('value')) ?? fallback);
             el.setValue(current, {
-              writeOperation: async (_val) => { await sleep(500); },
+              writeOperation: async _val => {
+                await sleep(500);
+              },
               optimistic: true,
             });
           });
@@ -1902,6 +2200,78 @@
           setTimeout(() => {
             connect(document.querySelectorAll('ui-toggle'), 'false');
             connect(document.querySelectorAll('ui-checkbox'), 'false');
+
+            // Mock Image Interactions
+            const mockImages = () => {
+              const imgUniversal = document.getElementById('demo-img-universal');
+              if (imgUniversal) {
+                imgUniversal.setValue(null, {
+                  readOperation: async () => {
+                    await new Promise(r => setTimeout(r, 800));
+                    // Random cat image
+                    return `https://loremflickr.com/640/480/technology?random=${Math.random()}`;
+                  },
+                  writeOperation: async f => {
+                    console.log('Upload simulated', f);
+                    await new Promise(r => setTimeout(r, 1500));
+                  },
+                });
+              }
+            };
+            setTimeout(mockImages, 1000);
+
+            // Mock Video Interactions
+            const mockVideo = () => {
+              const videoUniversal = document.getElementById('demo-video-universal');
+              if (videoUniversal) {
+                videoUniversal.setValue(null, {
+                  readOperation: async () => {
+                    await new Promise(r => setTimeout(r, 1000));
+                    // Sample video
+                    return 'https://media.w3.org/2010/05/sintel/trailer.mp4';
+                  },
+                  observeOperation: async next => {
+                    // Simulate stream connection
+                    setTimeout(() => {
+                      next('https://media.w3.org/2010/05/sintel/trailer.mp4');
+                    }, 1500);
+                  },
+                  writeOperation: async f => {
+                    console.log('Video upload', f);
+                    await new Promise(r => setTimeout(r, 2000));
+                  },
+                });
+              }
+            };
+            setTimeout(mockVideo, 1000);
+
+            // Mock Audio Interactions
+            const mockAudio = () => {
+              const audioUniversal = document.getElementById('demo-audio-universal');
+              if (audioUniversal) {
+                audioUniversal.setValue(null, {
+                  readOperation: async () => {
+                    await new Promise(r => setTimeout(r, 1000));
+                    // Sample audio
+                    return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                  },
+                  observeOperation: async next => {
+                    setTimeout(() => {
+                      // Simulate stream connection
+                      setTimeout(() => {
+                        next('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3');
+                      }, 5000);
+                    }, 3000);
+                  },
+                  writeOperation: async f => {
+                    console.log('Audio upload', f);
+                    await new Promise(r => setTimeout(r, 1500));
+                  },
+                });
+              }
+            };
+            setTimeout(mockAudio, 1000);
+
             connect(document.querySelectorAll('ui-slider'), '0');
             connect(document.querySelectorAll('ui-number-picker'), '0');
           }, 500);

@@ -1,8 +1,190 @@
 @import '../../global.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Component Styles replacing Tailwind */
+
+.ui-text-container {
+  position: relative;
+  width: 100%;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+}
+
+/* VARIANTS */
+/* Minimal */
+.ui-text-container.minimal {
+  background: transparent;
+  border-bottom: 2px solid #d1d5db;
+  /* gray-300 */
+}
+
+:host([dark]) .ui-text-container.minimal {
+  border-color: #6b7280;
+  /* gray-500 */
+}
+
+/* Outlined */
+.ui-text-container.outlined {
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  /* gray-300 */
+  color: #111827;
+  /* gray-900 */
+}
+
+:host([dark]) .ui-text-container.outlined {
+  background: #1f2937;
+  /* gray-800 */
+  border-color: #4b5563;
+  /* gray-600 */
+  color: #ffffff;
+}
+
+.ui-text-container.outlined:hover {
+  border-color: #9ca3af;
+  /* gray-400 */
+}
+
+:host([dark]) .ui-text-container.outlined:hover {
+  border-color: #6b7280;
+  /* gray-500 */
+}
+
+/* Filled */
+.ui-text-container.filled {
+  background: #f3f4f6;
+  /* gray-100 */
+  border: 2px solid #e5e7eb;
+  /* gray-200 */
+  color: #111827;
+  /* gray-900 */
+}
+
+:host([dark]) .ui-text-container.filled {
+  background: #374151;
+  /* gray-700 */
+  border-color: #4b5563;
+  /* gray-600 */
+  color: #ffffff;
+}
+
+/* MODES */
+.ui-text-container.mode-field {
+  border-radius: 0.375rem;
+  /* rounded-md */
+  padding: 0.5rem 0.75rem;
+  /* px-3 py-2 */
+  min-height: 2.5rem;
+  /* min-h-10 */
+}
+
+.ui-text-container.mode-area {
+  border-radius: 0.5rem;
+  /* rounded-lg */
+  padding: 0.75rem 1rem;
+  /* px-4 py-3 */
+  min-height: 6rem;
+  /* min-h-24 */
+}
+
+.ui-text-container.mode-structured {
+  border-radius: 0.5rem;
+  /* rounded-lg */
+  padding: 0.75rem 1rem;
+  /* px-4 py-3 */
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  /* text-sm */
+  background: #f9fafb;
+  /* gray-50 */
+  border-color: #d1d5db;
+  /* gray-300 */
+}
+
+:host([dark]) .ui-text-container.mode-structured {
+  background: #111827;
+  /* gray-900 */
+  border-color: #6b7280;
+  /* gray-500 */
+}
+
+.ui-text-container.mode-unstructured {
+  border-radius: 0.25rem;
+  /* rounded */
+  padding: 0.5rem 0.75rem;
+  /* px-3 py-2 */
+  min-height: 4rem;
+  /* min-h-16 */
+  background: transparent;
+  border-color: #e5e7eb;
+  /* gray-200 */
+}
+
+:host([dark]) .ui-text-container.mode-unstructured {
+  border-color: #374151;
+  /* gray-700 */
+}
+
+.ui-text-container.mode-editable {
+  border-radius: 0.375rem;
+  /* rounded-md */
+  padding: 0.5rem 0.75rem;
+  /* px-3 py-2 */
+  min-height: 2.5rem;
+  /* min-h-10 */
+  cursor: text;
+}
+
+/* Utilities inside container */
+.ui-text-label {
+  display: block;
+  font-size: 0.875rem;
+  /* text-sm */
+  font-weight: 500;
+  /* font-medium */
+  margin-bottom: 0.5rem;
+  /* mb-2 */
+  color: #374151;
+  /* gray-700 */
+}
+
+:host([dark]) .ui-text-label {
+  color: #e5e7eb;
+  /* gray-200 */
+}
+
+.text-count {
+  font-size: 0.75rem;
+  /* text-xs */
+  margin-top: 0.25rem;
+  /* mt-1 */
+  text-align: right;
+  color: #6b7280;
+  /* gray-500 */
+}
+
+:host([dark]) .text-count {
+  color: #9ca3af;
+  /* gray-400 */
+}
+
+.save-btn {
+  padding: 0.25rem 0.75rem;
+  /* px-3 py-1 */
+  font-size: 0.875rem;
+  /* text-sm */
+  border-radius: 0.25rem;
+  transition: background-color 0.2s, color 0.2s;
+  border: 1px solid;
+}
+
+.unsaved-msg {
+  font-size: 0.75rem;
+  /* text-xs */
+  color: #f97316;
+  /* orange-500 */
+  align-self: center;
+}
 
 :host {
   display: block;
@@ -13,4 +195,45 @@
   outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-accent, var(--color-primary)) 40%, transparent);
   border-color: var(--ui-accent, var(--color-primary));
+}
+
+/* Syntax Highlighting */
+.syntax-key {
+  color: #2563eb;
+  /* blue-600 */
+}
+
+:host([dark]) .syntax-key {
+  color: #60a5fa;
+  /* blue-400 */
+}
+
+.syntax-string {
+  color: #15803d;
+  /* green-700 */
+}
+
+:host([dark]) .syntax-string {
+  color: #4ade80;
+  /* green-400 */
+}
+
+.syntax-number {
+  color: #d97706;
+  /* amber-600 */
+}
+
+:host([dark]) .syntax-number {
+  color: #fbbf24;
+  /* amber-400 */
+}
+
+.syntax-bool {
+  color: #9333ea;
+  /* purple-600 */
+}
+
+:host([dark]) .syntax-bool {
+  color: #c084fc;
+  /* purple-400 */
 }

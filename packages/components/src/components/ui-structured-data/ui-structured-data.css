@@ -1,0 +1,368 @@
+/* ui-structured-data.css */
+
+:host {
+    display: block;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --node-indent: 20px;
+    --line-height: 24px;
+    --font-size: 14px;
+    --color-key: #d13438;
+    /* Reddish for keys */
+    --color-string: #2b7489;
+    /* Teal for strings */
+    --color-number: #098658;
+    /* Green for numbers */
+    --color-boolean: #0000ff;
+    /* Blue for booleans */
+    --color-null: #808080;
+    /* Gray for null */
+    --color-bg: #ffffff;
+    --color-bg-hover: #f3f3f3;
+    --color-border: #e0e0e0;
+    --color-bg-panel: #f8f9fa;
+
+    --spacing-unit: 8px;
+}
+
+:host([dark]) {
+    --color-key: #ff7b72;
+    --color-string: #a5d6ff;
+    --color-number: #79c0ff;
+    --color-boolean: #79c0ff;
+    --color-null: #8b949e;
+    --color-bg: #0d1117;
+    --color-bg-hover: #161b22;
+    --color-border: #30363d;
+    --color-bg-panel: #161b22;
+    color: #c9d1d9;
+}
+
+.container {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--color-bg-panel);
+    border-bottom: 1px solid var(--color-border);
+    font-size: 12px;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 8px;
+}
+
+.mode-toggle {
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+:host([dark]) .mode-toggle {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mode-btn {
+    border: none;
+    background: transparent;
+    padding: 4px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: inherit;
+    font-weight: 500;
+}
+
+.mode-btn.active {
+    background: var(--color-bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+:host([dark]) .mode-btn.active {
+    background: #30363d;
+}
+
+.action-btn {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: inherit;
+}
+
+.action-btn:hover {
+    background: var(--color-bg-hover);
+}
+
+.action-btn.primary {
+    background: #0969da;
+    color: white;
+    border-color: #0969da;
+}
+
+.action-btn.primary:hover {
+    background: #0a5cc0;
+}
+
+/* Content Area */
+.content {
+    padding: 12px;
+    overflow: auto;
+    min-height: 100px;
+    max-height: 500px;
+}
+
+/* Status Bar */
+.status-bar {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-panel);
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+:host([dark]) .status-bar {
+    color: #8b949e;
+}
+
+/* EXPLORER MODE - TREE VIEW */
+.tree-node {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.node-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 2px 0;
+    cursor: default;
+}
+
+.node-row:hover {
+    background-color: var(--color-bg-hover);
+}
+
+.indent-guide {
+    display: inline-block;
+    width: var(--node-indent);
+    height: 100%;
+    border-left: 1px solid transparent;
+}
+
+.node-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.expander {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    margin-right: 4px;
+    user-select: none;
+    color: #666;
+}
+
+.expander:hover {
+    color: #000;
+}
+
+:host([dark]) .expander {
+    color: #8b949e;
+}
+
+:host([dark]) .expander:hover {
+    color: #fff;
+}
+
+.key {
+    color: var(--color-key);
+    margin-right: 4px;
+}
+
+.separator {
+    margin-right: 4px;
+}
+
+.value-preview {
+    color: #666;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+:host([dark]) .value-preview {
+    color: #8b949e;
+}
+
+/* Primitives */
+.val.string {
+    color: var(--color-string);
+}
+
+.val.number {
+    color: var(--color-number);
+}
+
+.val.boolean {
+    color: var(--color-boolean);
+}
+
+.val.null {
+    color: var(--color-null);
+}
+
+/* Edit Inputs in Tree */
+.tree-input {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 4px;
+    border-radius: 3px;
+    min-width: 60px;
+}
+
+.tree-input:focus {
+    outline: 2px solid #0969da;
+    border-color: transparent;
+}
+
+/* WRITER MODE - FORM VIEW */
+.form-root {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-field.nested {
+    border-left: 2px solid var(--color-border);
+    padding-left: 12px;
+    margin-left: 4px;
+}
+
+.field-label {
+    font-weight: 500;
+    font-size: 13px;
+    color: #24292f;
+    display: flex;
+    justify-content: space-between;
+}
+
+:host([dark]) .field-label {
+    color: #c9d1d9;
+}
+
+.field-desc {
+    font-size: 11px;
+    color: #57606a;
+    margin-bottom: 4px;
+}
+
+:host([dark]) .field-desc {
+    color: #8b949e;
+}
+
+.form-input {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    color: inherit;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #0969da;
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+}
+
+.array-item {
+    display: flex;
+    gap: 8px;
+    align-items: start;
+    margin-bottom: 8px;
+}
+
+.array-item-content {
+    flex: 1;
+}
+
+.btn-icon {
+    border: none;
+    background: transparent;
+    color: #57606a;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.btn-icon:hover {
+    background: var(--color-bg-hover);
+    color: #24292f;
+}
+
+:host([dark]) .btn-icon {
+    color: #8b949e;
+}
+
+:host([dark]) .btn-icon:hover {
+    color: #c9d1d9;
+}
+
+.btn-add {
+    font-size: 12px;
+    color: #0969da;
+    background: transparent;
+    border: 1px dashed #0969da;
+    border-radius: 4px;
+    padding: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-add:hover {
+    background: rgba(9, 105, 218, 0.05);
+}
+
+.validation-error {
+    color: #cf222e;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+/* JSON PREVIEW MODE */
